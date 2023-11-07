@@ -1,12 +1,18 @@
 <h1>Atualizando o Repositório Java no Github</h1>
 
+
+
 O que veremos por aqui:
 
 - Visualizar a pasta Workspace
 - Atualizar o Repositório Git Local
 - Atualizar o Repositório Remoto no Github
 
+<br />
+
 <h2>1. Visualizar a pasta Workspace</h2>
+
+
 
 1. No Eclipse/STS, clique com o botão direito do mouse sobre a pasta do projeto (no exemplo abaixo, **helloworld**). No menu que será aberto, clique na opção **Show in 🡒 System Explorer**, para exibir a pasta no Windows Explorer.
 
@@ -155,6 +161,4 @@ git log
 | <img src="https://i.imgur.com/vVDBDG0.png" title="source: imgur.com" width="100px"/> | <div align="left"> **ALERTA DE BSM:** *Mantenha a Atenção aos Detalhes. Repita estes passos a cada novo projeto que for criado ou a cada alteração que você realizar em um projeto existente.* </div> |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
-<br /><br />
-
-<div align="left"><a href="../README.md"><img src="https://i.imgur.com/XMgF3gl.png" title="source: imgur.com" width="3%"/>Voltar</a></div>
+<br />

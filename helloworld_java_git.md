@@ -1,8 +1,14 @@
 <h1>Enviando o Projeto Java para o Github</h1>
 
+
+
 Vamos configurar a pasta **Workspace** do Eclipse/STS para se tornar um Repositório Local do Git e conectá-la ao Repositório Remoto no Github. Desta forma, simplificaremos o processo de enviar os códigos criados em aula para o Github.
 
+<br />
+
 <h2>1. Enviando o primeiro Projeto Java para o Github</h2>
+
+
 
 1. No Eclipse/STS, clique com o botão direito do mouse sobre a pasta do projeto (no exemplo abaixo, **helloworld**). No menu que será aberto, clique na opção **Show in 🡒 System Explorer**, para exibir a pasta no Windows Explorer.
 
@@ -23,10 +29,17 @@ Vamos configurar a pasta **Workspace** do Eclipse/STS para se tornar um Reposit�
 5. Crie o arquivo **.gitignore**, através do comando abaixo:
 
 ```bash
+touch .gitignore
+```
+
+6. Crie o arquivo **.gitignore**, através do comando abaixo:
+
+```bash
 notepad .gitignore
 ```
 
-6. Será aberta a janela do **Notepad (Bloco de Notas)**, solicitando a criação do arquivo. Clique no botão **Sim**, para continuar.
+7. Será aberta a janela do **Notepad (Bloco de Notas)**, solicitando a criação do arquivo. Clique no botão **Sim**, para continuar.
+
 <div align="center"><img src="https://i.imgur.com/IkFtVpL.png" title="source: imgur.com" /></div>
 
 <br />
@@ -50,70 +63,125 @@ notepad .gitignore
 
 <br />
 
-7. No arquivo **.gitignore**, adicione a linha **.metadata** e na sequência salve e feche o arquivo.
+8. No arquivo **.gitignore**, adicione as linhas abaixo e na sequência salve e feche o arquivo.
 
-<div align="center"><img src="https://i.imgur.com/AKTNixM.png" title="source: imgur.com" /></div>
+```bash
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
 
-**.metadata** é a pasta que será ignorada pelo Git na hora de versionar o código.
+# External tool builders
+.externalToolBuilders/
 
-8. De volta ao **Git Bash**, digite o comando abaixo para criar o Repositório Local dentro da pasta **Worskspace do Eclipse/STS**.
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+.cproject
+
+# CDT- autotools
+.autotools
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+
+# Annotation Processing
+.apt_generated/
+.apt_generated_test/
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+.cache-main
+.scala_dependencies
+.worksheet
+```
+
+9. De volta ao **Git Bash**, digite o comando abaixo para criar o Repositório Local dentro da pasta **Worskspace do Eclipse/STS**.
 
 ```bash
 git init
 ```
 
-9. Digite o comando abaixo para adicionar o Projeto na **Stage Area** do Git:
+10. Digite o comando abaixo para adicionar o Projeto na **Stage Area** do Git:
 
 
 ```bash
 git add .
 ```
 
-10. Na sequência, faça o commit do Projeto, através do comando abaixo:
+11. Na sequência, faça o commit do Projeto, através do comando abaixo:
 
 ```bash
 git commit -m "Projeto Hello World"
 ```
 
-11. Acesse o seu **Github** e crie um novo **Repositório**, através da opção **New repository**, como mostra a imagem abaixo:
+12. Acesse o seu **Github** e crie um novo **Repositório**, através da opção **New repository**, como mostra a imagem abaixo:
 
 <div align="center"><img src="https://i.imgur.com/GncQ1uf.png" title="source: imgur.com" /></div>
 
-12. Crie o **Repositório Remoto** chamado **java**:
+13. Crie o **Repositório Remoto** chamado **java**:
 
 <div align="center"><img src="https://i.imgur.com/zp1RlIP.png" title="source: imgur.com" /></div>
 
-13. Clique no botão **Create Repository**, para criar o Repositório:
+14. Clique no botão **Create Repository**, para criar o Repositório:
 
 <div align="center"><img src="https://i.imgur.com/d9cRI9m.png" title="source: imgur.com" /></div>
 
-14. Na próxima janela, copie o endereço **HTTPS do Repositório Remoto**, indicado na imagem abaixo:
+15. Na próxima janela, copie o endereço **HTTPS do Repositório Remoto**, indicado na imagem abaixo:
 
 <div align="center"><img src="https://i.imgur.com/pIfU6Sx.png" title="source: imgur.com" /></div>
 
-15. Volte para o Git Bash e execute o comando abaixo para conectar o seu **Repositório Local** com o seu **Repositório Remoto**, onde o endereço **https**, será o endereço do seu **Repositório Remoto**.
+16. Volte para o Git Bash e execute o comando abaixo para conectar o seu **Repositório Local** com o seu **Repositório Remoto**, onde o endereço **https**, será o endereço do seu **Repositório Remoto**.
 
 ```bash
 git remote add origin https://github.com/rafaelq80/java.git
 ```
 
-16. Digite o comando abaixo para checar se o seu  **Repositório Local** está conectado com o seu **Repositório Remoto**:
+17. Digite o comando abaixo para checar se o seu  **Repositório Local** está conectado com o seu **Repositório Remoto**:
 
 ```bash
 git remote -v
 ```
 
-17. Se estiver conectado, será exibida uma mensagem, semelhante a imagem abaixo:
+18. Se estiver conectado, será exibida uma mensagem, semelhante a imagem abaixo:
 
 <div align="center"><img src="https://i.imgur.com/XWee1oq.png" title="source: imgur.com" /></div>
 
-18. Na sequência, utilize o comando abaixo, para sincronizar o conteúdo do **Repositório Local** com o seu **Repositório Remoto**:
+19. Na sequência, utilize o comando abaixo, para sincronizar o conteúdo do **Repositório Local** com o seu **Repositório Remoto**:
 
 ```bash
 git push origin main
 ```
 
-19. Volte para o Github, atualize a página do seu **Repositório Remoto** e verifique se ele está semelhante a imagem abaixo:
+20. Volte para o Github, atualize a página do seu **Repositório Remoto** e verifique se ele está semelhante a imagem abaixo:
 
 <div align="center"><img src="https://i.imgur.com/HQANKTE.png" title="source: imgur.com" /></div>
 
@@ -121,55 +189,118 @@ git push origin main
 
 <h2>2. Esqueci de criar o .gitignore</h2>
 
+
+
 1. Caso você tenha esquecido de criar o **.gitignore**, o seu **Repositório Remoto** estará  semelhante a imagem abaixo:
 
 <div align="center"><img src="https://i.imgur.com/jlFcxIT.png" title="source: imgur.com" /></div>
 
-A pasta **.metadata**, é utilizada para guardar as configurações da Workspace que você está desenvolvendo o seu projeto. Estas configurações são específicas do Eclipse e não é necessário enviar para o Github, além de ocupar espaço desnecessário no Repositório Remoto. Por isso vamos retirar esta pasta do versionamento.
+A pasta **.metadata**, é utilizada para guardar as configurações da Workspace que você está desenvolvendo o seu projeto. Estas configurações são específicas do Eclipse e não é necessário enviar para o Github, além de ocupar espaço desnecessário no Repositório Remoto. Por isso vamos retirar esta pasta e outros arquivos desnecessários do versionamento.
 
 2. Abra o Gitbash e acesse a pasta do seu **Repositório Local** (em nosso exemplo, a pasta **Workspace do Eclipse/STS**)
 3. Crie o arquivo **.gitignore**, através do comando abaixo:
 
 ```bash
+touch .gitignore
+```
+
+4. Abra o arquivo **.gitignore**, através do comando abaixo:
+
+```bash
 notepad .gitignore
 ```
 
-4. Será aberta a janela do **Notepad (Bloco de Notas)**, solicitando a criação do arquivo. Clique no botão **Sim**, para continuar.
+5. Será aberta a janela do **Notepad (Bloco de Notas)**, solicitando a criação do arquivo. Clique no botão **Sim**, para continuar.
 
 <div align="center"><img src="https://i.imgur.com/IkFtVpL.png" title="source: imgur.com" /></div>
 
-5. No arquivo **.gitignore**, adicione a linha **.metadata** e na sequência salve e feche o arquivo.
+6. No arquivo **.gitignore**, adicione as linhas abaixo e na sequência salve e feche o arquivo.
 
-<div align="center"><img src="https://i.imgur.com/AKTNixM.png" title="source: imgur.com" /></div>
+```bash
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
 
-**.metadata** é a pasta que será ignorada pelo Git na hora de versionar o código.
+# External tool builders
+.externalToolBuilders/
 
-6. Digite o comando abaixo para adicionar o arquivo na **Stage Area** do Git:
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+.cproject
+
+# CDT- autotools
+.autotools
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+
+# Annotation Processing
+.apt_generated/
+.apt_generated_test/
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+.cache-main
+.scala_dependencies
+.worksheet
+```
+
+7. Digite o comando abaixo para adicionar o arquivo na **Stage Area** do Git:
 
 
 ```bash
 git add .
 ```
 
-7. Na sequência, faça o commit do arquivo, através do comando abaixo:
+8. Na sequência, faça o commit do arquivo, através do comando abaixo:
 
 ```bash
 git commit -m "Adicionar .gitignore"
 ```
 
-8. Na sequência, utilize o comando abaixo, para sincronizar o conteúdo do **Repositório Local** com o seu **Repositório Remoto**:
+9. Na sequência, utilize o comando abaixo, para sincronizar o conteúdo do **Repositório Local** com o seu **Repositório Remoto**:
 
 ```bash
 git push origin main
 ```
 
-9. Volte para o Github, atualize a página do seu **Repositório Remoto** e verifique se ele está semelhante a imagem abaixo:
+10. Volte para o Github, atualize a página do seu **Repositório Remoto** e verifique se ele está semelhante a imagem abaixo:
 
 <div align="center"><img src="https://i.imgur.com/fCIzUUz.png" title="source: imgur.com" /></div>
 
 Observe que o arquivo **.gitignore** foi enviado para o Repositório Remoto, entretanto a pasta **.metadata** não foi excluída. Isso aconteceu porquê o .gitignore irá ignorar a pasta (não irá versionar), mas não irá excluir a pasta já versionada anteriormente.
 
-10. Para excluir a pasta, utilize o comando abaixo:
+11. Para excluir a pasta, utilize o comando abaixo:
 
 ```bash
 git rm -rf --cached .metadata/
@@ -179,26 +310,26 @@ git rm -rf --cached .metadata/
 
 <div align="center"><img src="https://i.imgur.com/Qxxd9qX.png" title="source: imgur.com" /></div>
 
-11. Digite o comando abaixo para adicionar a exclusão da pasta **.metadata** na **Stage Area** do Git:
+12. Digite o comando abaixo para adicionar a exclusão da pasta **.metadata** na **Stage Area** do Git:
 
 
 ```bash
 git add .
 ```
 
-12. Na sequência, faça o commit para confirmar a exclusão da pasta **.metadata** do Repositório Local, através do comando abaixo:
+13. Na sequência, faça o commit para confirmar a exclusão da pasta **.metadata** do Repositório Local, através do comando abaixo:
 
 ```bash
-git commit -m "Excluir a pasta .metadata"
+git commit -m "Excluir arquivos"
 ```
 
-13. Na sequência, utilize o comando abaixo, para sincronizar o conteúdo do **Repositório Local** com o seu **Repositório Remoto**:
+14. Na sequência, utilize o comando abaixo, para sincronizar o conteúdo do **Repositório Local** com o seu **Repositório Remoto**:
 
 ```bash
 git push origin main
 ```
 
-14. Volte para o Github, atualize a página do seu **Repositório Remoto** e verifique se ele está semelhante a imagem abaixo:
+15. Volte para o Github, atualize a página do seu **Repositório Remoto** e verifique se ele está semelhante a imagem abaixo:
 
 <div align="center"><img src="https://i.imgur.com/LgMjaZA.png" title="source: imgur.com" /></div>
 
@@ -211,6 +342,8 @@ Observe que a pasta **.metadata** foi excluída do **Repositório Remoto**.
 <br />
 
 <h2>3. Criei um novo Projeto na Workspace</h2>
+
+
 
 No decorrer das aulas, serão criados vários projetos dentro da pasta Workspace. Para atualizar os Repositórios Local e Remoto, não será necessário criar um novo Repositório e fazer todo o processo acima. Para atualizar o Repositório atual, siga os passos abaixo:
 
@@ -235,6 +368,4 @@ git push origin main
 
 4. Volte para o Github, atualize a página do seu **Repositório Remoto** e verifique se ele foi atualizado.
 
-<br /><br />
-
-<div align="left"><a href="../README.md"><img src="https://i.imgur.com/XMgF3gl.png" title="source: imgur.com" width="3%"/>Voltar</a></div>
+<br />

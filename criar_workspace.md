@@ -1,4 +1,4 @@
-<h1>Criando uma nova Worksapce</h1>
+<h1>Criando uma nova Workspace</h1>
 
 
 
@@ -45,8 +45,8 @@ Para manter o Projeto Java separado dos outros projetos criados em aula, vamos c
 
 Em caso de dúvidas, consulte os Guias:
 
-- [Enviando Projeto Java para o Github](https://github.com/rafaelq80/conteudo_git/blob/main/windows/git/helloworld_java_git.md)
-- [Atualizando o Repositório Remoto no Github](https://github.com/rafaelq80/conteudo_git/blob/main/windows/git/atualizar_repo_github.md)
+- [Enviando Projeto Java para o Github](https://github.com/rafaelq80/aulas_java/blob/main/helloworld_java_git.md)
+- [Atualizando o Repositório Remoto no Github](https://github.com/rafaelq80/aulas_java/blob/main/atualizar_repo_github.md)
 
 <br />
 

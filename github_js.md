@@ -174,7 +174,7 @@ npm install readline-sync
 npm list
 ```
 
-5. Será exibida a lista de pacotes instalados. Verifique se o **Pacote Readline-Sync** está instalado no seu projeto:
+3. Será exibida a lista de pacotes instalados. Verifique se o **Pacote Readline-Sync** está instalado no seu projeto:
 
 <div><img src="https://i.imgur.com/zJt3v3D.png" title="source: imgur.com" /></div>
 
@@ -238,6 +238,8 @@ O Comando **console.log()** exibirá uma mensagem no Terminal.
 5. Volte para o o projeto **HelloWorld** e clique no botão <img src="https://i.imgur.com/dGcYxli.png" title="source: imgur.com" width="4%"/>**Run Code** para executar o código:
 
 <div align="center"><img src="https://i.imgur.com/4rVxyc6.png" title="source: imgur.com" /></div>
+
+<br />
 
 <img src="https://i.imgur.com/V2ReOnx.png" title="source: imgur.com" width="3%"/>**Resultado do Código:**
 

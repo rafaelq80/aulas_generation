@@ -1,4 +1,4 @@
-<h1>Criar o Repositório Local para envio dos Exercícios</h1>
+<h1>Enviando o Projeto JavaScript para o Github</h1>
 
 
 
@@ -12,31 +12,29 @@ Vamos configurar o Repositório Local do Git e conectá-lo ao Repositório Remot
 
 1. Crie uma pasta na **Área de Trabalho**, chamada **javascript**.
 2. Abra o Visual Studio Code IDE através da caixa de pesquisa da sua barra de tarefas, ou através do menu iniciar do seu Sistema Operacional.
-
-
 3. Ao iniciar o Visual Studio Code IDE, será aberta a tela abaixo, perguntando o que você deseja fazer?
 
 <div align="center"><img src="https://i.imgur.com/AtTA7K4.png" title="source: imgur.com" /></div>
 
-4. No VSCode, abra a pasta **javascript**, criada na **Área de Trabalho**, através do menu **File 🡪 Open Folder...**
+4. No **Visual Studio Code**, abra a pasta **javascript**, criada na **Área de Trabalho**, através do menu **File 🡪 Open Folder... (Arquivo 🡪 Abrir Pasta...)**
 
    <div align="center"><img src="https://i.imgur.com/TgvVW26.png" title="source: imgur.com" /></div>
 
-5. Localize na **Área de Trabalho do seu Computador** a pasta **javascript** e na sequência, abra a pasta e clique no botão **Selecionar pasta**.
+5. Localize na **Área de Trabalho do seu Computador** a pasta **javascript** e na sequência, dê um duplo clique sobre a  pasta e clique no botão **Selecionar pasta**.
 
 <div align="center">
   <img src="https://i.imgur.com/R0Wc4WE.png" title="source: imgur.com" />
 </div>
 
-6. Depois de abrir a pasta, abra o **Terminal** do VSCode através do menu **Terminal 🡪 New Terminal**
+6. Depois de abrir a pasta, abra o **Terminal** do Visual Studio Code através do menu **Terminal 🡪 New Terminal (Terminal 🡪 Novo Terminal)**
 
    <div align="center"><img src="https://i.imgur.com/4rdobXK.png?1" title="source: imgur.com" /></div>
 
-7. Será aberta a tela do **Power Shell** na parte inferior da janela do VSCode.
+7. Inicialmente, será aberta a tela do **Power Shell** na parte inferior da janela do Visual Studio Code.
 
    <div><img src="https://i.imgur.com/BYbZTqV.png" title="source: imgur.com" /></div>
 
-8. Vamos alterar o Terminal padrão do VSCode para o **GitBash**. Ao lado do identificador do Terminal **powershell**, tem um botão com um sinal de + e uma seta apontando para baixo, como mostra a imagem abaixo:
+8. Vamos alterar o Terminal padrão do Visual Studio Code para o **GitBash**. Ao lado do identificador do Terminal **powershell**, tem um botão com um sinal de + e uma seta apontando para baixo, como mostra a imagem abaixo:
 
    <div><img src="https://i.imgur.com/5oBDpyM.png" title="source: imgur.com" /></div>
 
@@ -45,22 +43,23 @@ Vamos configurar o Repositório Local do Git e conectá-lo ao Repositório Remot
 
 <div align="center"><img src="https://i.imgur.com/nlQYFaX.png" title="source: imgur.com" /></div>
 
-11. Será aberto um menu suspenso, abaixo da **Barra de Menus** do VSCode. Clique na opção **Git Bash**.
+11. Será aberto um menu suspenso, abaixo da **Barra de Menus** do Visual Studio Code. Clique na opção **Git Bash**.
 
 <div align="center"><img src="https://i.imgur.com/81kHNE7.png" title="source: imgur.com" /></div>
 
-12. Feche a Janela do Terminal e abra novamente através do menu **Terminal 🡪 New Terminal**. Observe que será aberta a janela do Terminal **Git Bash**, ao invés do Powershell.
+12. Feche a Janela do Terminal e abra novamente através do menu **Terminal 🡪 New Terminal (Terminal 🡪 Novo Terminal)**. 
+12. Observe que será aberta a janela do Terminal **Git Bash**, ao invés do **Powershell**.
 
    <div><img src="https://i.imgur.com/dclBNT6.png" title="source: imgur.com" /></div>
 
-13. Antes de começarmos a criar o nosso primeiro projeto nesta pasta, vamos checar se o **Node** está instalado corretamente através do comando abaixo:
+14. Antes de começarmos a criar o nosso primeiro projeto nesta pasta, vamos checar se o **Node** está instalado corretamente através do comando abaixo:
 
    ```bash
    node -v
    ```
    <div><img src="https://i.imgur.com/Jv03d8U.png" title="source: imgur.com" /></div>
 
-14. Verifique também se o **NPM** está instalado através do comando:
+15. Vamos verificar também se o **NPM** está instalado através do comando:
 
    ```bash
    npm -v
@@ -84,7 +83,7 @@ Vamos configurar o Repositório Local do Git e conectá-lo ao Repositório Remot
 
 
 
-Vamos criar o arquivo **.gitignore**, que contêm padrões, que são comparados com nomes de arquivos em seu repositório para determinar se devem ou não ser ignorados pelo git, no momento de versionar o seu código:
+Vamos criar o arquivo **.gitignore** dentro da pasta **javascript**, que contêm os padrões, que serão comparados com nomes de arquivos e pastas dentro do seu repositório, para determinar se devem ou não ser ignorados pelo git, no momento do versionamento do seu código:
 
 1. No terminal, dentro da pasta **javascript**, crie o arquivo **.gitignore**, através do comando abaixo:
 
@@ -92,7 +91,7 @@ Vamos criar o arquivo **.gitignore**, que contêm padrões, que são comparados 
 touch .gitignore
 ```
 
-2. Abra o arquivo  **.gitignore** no VSCode:
+2. Abra o arquivo  **.gitignore** no **Visual Studio Code**:
 
 <div><img src="https://i.imgur.com/rMyOcWi.png" title="source: imgur.com" /></div>
 
@@ -146,7 +145,7 @@ lerna-debug.log*
 .settings/
 *.sublime-workspace
 
-# IDE - VSCode
+# IDE - Visual Studio Code
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -156,11 +155,16 @@ lerna-debug.log*
 
 <br />
 
+| <img src="https://i.imgur.com/RfjtOFi.png" title="source: imgur.com" width="100px"/> | <div align="left">**DICA:** *Habilite a opção Auto Save, através do menu File 🡪 Auto Save. Desta forma, não será mais necessário se preocupar em Salvar os arquivos criados no Visual Studio Code.* </div> |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+
+<br />
+
 <h2>👣 Passo 03 - Instalar a Biblioteca Readline-Sync</h2>
 
 
 
-Vamos instalar a Biblioteca **Readline-Sync**, que nos permitirá fazer a leitura de dados via teclado nos próximos exercícios:
+Vamos instalar a Biblioteca **Readline-Sync**, que nos permitirá fazer a leitura de dados via teclado nos próximos projetos, que serão criados na pasta **javascript**:
 
 1. Vamos instalar o **Pacote Readline-Sync** através do comando abaixo:
 
@@ -218,24 +222,30 @@ O Comando **console.log()** exibirá uma mensagem no Terminal.
 
 <br />
 
-<h2>👣 Passo 06 - Executar o Código através da extensão Code Runner</h2>
+<h2>👣 Passo 06 - Instalar a extensão Code Runner</h2>
 
 
 
-1. Instale a extensão **Code Runner** no VSCode, através do link: https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner
-2. Após a instalação, clique no botão <img src="https://i.imgur.com/8qfoVTi.png" title="source: imgur.com" width="4%"/> **Manager** para configurar o **Code Runner**:
+A extensão **Code Runner**, simplifica o processo de execução do código, criando um botão no Visual Studio Code, que permite executar o código sem a necessidade de digitar comandos no Terminal:
+
+1. Na **Barra de atividades (Activity Bar)**, localizada no lado esquerdo da tela do Visual Studio Code, clique no ícone <img src="https://i.imgur.com/yW9M2ET.png" title="source: imgur.com" width="4%"/> **Extensions (Extensões)**
+2. Localize e Instale a extensão **Code Runner**, clicando no botão **Install (Instalar)**.
+
+<div align="center"><img src="https://i.imgur.com/MBBmCSA.png" title="source: imgur.com" /></div>
+
+3. Após a instalação, abra a página da extensão **Code Runner** e clique no botão <img src="https://i.imgur.com/8qfoVTi.png" title="source: imgur.com" width="4%"/> **Manager** para configurar o **Code Runner**, como mostra  a imagem abaixo:
 
 <div align="center"><img src="https://i.imgur.com/LrTwPpA.png" title="source: imgur.com" /></div>
 
-3. Na sequência, clique na opção **Extension Settings**:
+4. Na sequência, clique na opção **Extension Settings**, no menu que será aberto:
 
 <div align="center"><img src="https://i.imgur.com/fqvpHzZ.png" title="source: imgur.com" /></div>
 
-4. Localize a opção **Code-runner: Run In Terminal** e marque a opção: **Whether to run code in Integrated Terminal**:
+5. Localize a opção **Code-runner: Run In Terminal** e marque a opção: **Whether to run code in Integrated Terminal**:
 
 <div align="center"><img src="https://i.imgur.com/X1HBobC.png" title="source: imgur.com" /></div>
 
-5. Volte para o o projeto **HelloWorld** e clique no botão <img src="https://i.imgur.com/dGcYxli.png" title="source: imgur.com" width="4%"/>**Run Code** para executar o código:
+6. Volte para o o projeto **HelloWorld** e clique no botão <img src="https://i.imgur.com/dGcYxli.png" title="source: imgur.com" width="4%"/>**Run Code** para executar o código:
 
 <div align="center"><img src="https://i.imgur.com/4rVxyc6.png" title="source: imgur.com" /></div>
 
@@ -247,7 +257,7 @@ O Comando **console.log()** exibirá uma mensagem no Terminal.
 Hello World!
 ```
 
-6. O resultado acima será exibido no Terminal.
+7. O resultado acima será exibido no Terminal.
 
 <br />
 
@@ -255,7 +265,7 @@ Hello World!
 
 
 
-1. De volta ao **Terminal**, digite o comando abaixo para criar o Repositório Local dentro da pasta **javascript**.
+1. De volta ao **Terminal**, dentro da pasta **javascript**, digite o comando abaixo para criar o Repositório Local dentro da pasta **javascript**.
 
 ```bash
 git init
@@ -318,13 +328,13 @@ git push origin main
 
 <br />
 
-<h2>1. Criei um novo Projeto na pasta javascript</h2>
+<h2>Criei um novo Projeto na pasta javascript. Como envoar para o Github?</h2>
 
 
 
 No decorrer das aulas, serão criados vários projetos dentro da pasta javascript. Para atualizar os Repositórios Local e Remoto, não será necessário criar um novo Repositório e fazer todo o processo acima. Para atualizar o Repositório atual, siga os passos abaixo:
 
-1. Digite o comando abaixo para adicionar os novos Projetos na **Stage Area** do Git:
+1. Depois de criar e finalizar o seu projeto, digite o comando abaixo para adicionar os novos Projetos na **Stage Area** do Git:
 
 
 ```bash

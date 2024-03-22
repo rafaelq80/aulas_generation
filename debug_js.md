@@ -170,6 +170,3 @@ Na sequência, vamos executar o código em modo **Debug**:
 
 Observe na animação acima, na Guia **WATCH**, que a cada número digitado, uma nova posição do vetor é preenchida.
 
-<br />
-
-<div align="left"><a href="README.md"><img src="https://i.imgur.com/XMgF3gl.png" title="source: imgur.com" width="3%"/>Voltar</a></div> 

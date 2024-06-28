@@ -53,11 +53,11 @@ posição 4 = 50
 
 Primeiro precisamos configurar o Debug do JavaScript no VSCode:
 
-1. Abra a pasta **.vscode**, localizada na pasta **javascript**:
+1. Abra a pasta **.vscode**, localizada dentro da pasta **javascript**. Caso a pasta não exista, crie a pasta **.vscode**.
 
 <div align="center"><img src="https://i.imgur.com/wO9ZFYp.png" title="source: imgur.com" /></div>
 
-2. Adicione o código abaixo no arquivo **launch.json**:
+2. Crie o arquivo **launch.json** e adicione o código abaixo dentro do arquivo **launch.json**.
 
 ```json
 {
@@ -169,4 +169,3 @@ Na sequência, vamos executar o código em modo **Debug**:
 <div align="center"><img src="https://ik.imagekit.io/vzr6ryejm/debug.gif?updatedAt=1711113244164f" /></div>
 
 Observe na animação acima, na Guia **WATCH**, que a cada número digitado, uma nova posição do vetor é preenchida.
-

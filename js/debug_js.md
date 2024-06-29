@@ -139,7 +139,15 @@ Na sequência, vamos executar o código em modo **Debug**:
 
 <div align="center"><img src="https://i.imgur.com/6qJyMYp.png" title="source: imgur.com" /></div>
 
-5. Na Guia **WATCH**, clique no botão **+**, para adicionar uma variável no monitoramento do Debug:
+5. Caso esta lista não apareça, clique com o botão direito do mouse sobre o ícone da engrenagem, como mostra a imagem abaixo:
+
+<div align="center"><img src="https://i.imgur.com/hOodH6X.png" title="source: imgur.com" /></div>
+
+6. No menu que será aberto, clique na opção **Start Debugging**
+
+<div align="center"><img src="https://i.imgur.com/O8BIesZ.png" title="source: imgur.com" /></div>
+
+7. Na Guia **WATCH**, clique no botão **+**, para adicionar as variáveis, que você deseja monitorar no Debug:
 
 <div align="center"><img src="https://i.imgur.com/LHRWFaA.png" title="source: imgur.com" /></div>
 

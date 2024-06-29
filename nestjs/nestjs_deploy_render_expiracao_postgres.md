@@ -16,7 +16,7 @@ Ao completar os 30 dias, você será notificado por e-mail da expiração do Ban
 2. Acesse o **Dashboard** através da sua conta do **Github**
 3. Clique no Banco de dados, para acessar as configurações
 
-<div align="center"><img src="https://i.imgur.com/BO6v5lF.png" title="source: imgur.com" /></div>
+<div align="center"><img src="https://i.imgur.com/LaaaY7l.png" title="source: imgur.com" /></div>
 
 4. Role a tela de configurações até o final e localize o botão **Delete Database**
 

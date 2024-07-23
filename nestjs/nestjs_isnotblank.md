@@ -17,6 +17,10 @@ Em algumas situações, pode ser necessário transformar um Objeto **Simples** e
 
 Em situações que você precise criar uma validação personalizada para um ou mais atributos do Objeto, antes dele ser persistido, pode ser necessário executar uma transformação, antes de aplicar a validação. Para executar esta transformação, utilizaremos o pacote **Class Transformer**. O objetivo desta biblioteca é mapear os seus Objetos  Simples em Objetos de Classe, permitindo que sejam aplicadas as transformações necessárias, através de funções TypeScript.
 
+>A Biblioteca **Class Transformer** trabalha em conjunto com a Biblioteca **Class Validator**, com os Pipes.
+>
+>**Pipes** no NestJS são o canivete suíço do processamento de dados. Eles facilitam a transformação, a sanitização (higienização) e a validação contínua dos dados recebidos à medida que eles atravessam várias partes do seu aplicativo. Isso garante que os dados estejam em conformidade com requisitos especificados na Classe Entidade antes de serem usados nas Classes Controladoras ou enviados de volta como Respostas das Requisições.
+
 O decorador **@Transform** permite realizar transformações nos dados, recebendo o Objeto Simples, convertendo em Objeto de Classe e aplicando transformações necessárias através de Arrow Functions. O decorador **@Transform** recebe 5 atributos, que permitiem que você faça praticamente qualquer tipo de  transformação:
 
 **Sintaxe:**
@@ -52,10 +56,10 @@ A Interface **TransformFnParams** é a Interface que define o modelo do Objeto (
 > ```ts
 > // Objeto pessoa
 > let pessoa = {
->  nome: "Sarah", 
->  pais: "Nigéria", 
->  profissao: "Desenvolvedora Fullstack", 
->  amigas: ["Annie", "Becky"]
+> nome: "Sarah", 
+> pais: "Nigéria", 
+> profissao: "Desenvolvedora Fullstack", 
+> amigas: ["Annie", "Becky"]
 > };
 > 
 > // Atribuição por Desestruturação

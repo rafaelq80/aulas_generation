@@ -1,4 +1,4 @@
-<h1>Criando Variáveis de Ambiente no Nest JS</h1>
+<h1>Projeto Integrador - Criando Variáveis de Ambiente no Nest JS</h1>
 
 Vamos configurar o Nest para trabalhar com variáveis de ambiente, com o objetivo de ocultar as configurações mais sensíveis da nossa aplicação (conexão com o banco de dados, secret, entre outras).
 

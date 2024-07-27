@@ -1,8 +1,22 @@
 <h1>Figma</h1>
 
+<br />
 
+<h2>O que Veremos por aqui?</h2>
 
-<a href="#interface">Interface</a>
+1. <a href="#interface"> Interface</a>
+2. <a href="#ferramentas">Ferramentas</a>
+   ​	2.1. <a href="#selecao">Ferramenta de Seleção</a>
+   ​	2.2. <a href="#frame">Frame</a>
+   ​	2.3. <a href="#secao">Seção</a>
+   ​	2.4. <a href="#slices">Slices</a>
+   ​	2.5. <a href="#formas">Formas</a>
+   ​	2.6. <a href="#caneta">Caneta</a>
+   ​	2.7. <a href="#texto">Texto</a>
+   ​	2.8. <a href="#recursos">Recursos</a>
+   ​	2.9. <a href="#mao">Ferramenta Mão</a>
+   ​	2.10. <a href="#comentarios">Ferramenta Comentários</a>
+3. <a href="#interface">Interface</a>
 
 
 
@@ -116,7 +130,7 @@ No Painel de propriedades você terá todas as opções para manipular os objeto
 
 <br />
 
-<h2>2. Ferramentas</h2>
+<h2 id="#ferramentas">2. Ferramentas</h2>
 
 
 
@@ -124,7 +138,7 @@ Vamos conhecer as principais ferramentas oferecidas pelo Figma:
 
 <br />
 
-<h3>2.1. Ferramenta de Seleção (Selection Tool)</h3>
+<h3 id="selecao">2.1. Ferramenta de Seleção (Selection Tool)</h3>
 
 
 
@@ -132,7 +146,7 @@ A ferramenta de seleção é fundamental no Figma para escolher e manipular elem
 
 <br />
 
-<h3>2.2. Frames</h3>
+<h3 id="frames">2.2. Frames</h3>
 
 
 
@@ -148,7 +162,7 @@ Ao adicionar um Frame, no Painel de Propriedades é possível escolher o tamanho
 
 <br />
 
-<h3>2.3. Sections</h3>
+<h3 id="secao">2.3. Seção (Sections)</h3>
 
 
 
@@ -160,7 +174,7 @@ Ao criar um protótipo, geralmente utilizamos Sections para separar claramente a
 
 <br />
 
-<h3>2.4. Slices</h3>
+<h3 id="slices">2.4. Slices</h3>
 
 
 
@@ -172,7 +186,7 @@ Antes de entregar designs para as pessoas desenvolvedoras, crie Slices ao redor 
 
 <br />
 
-<h3>2.5. Ferramenta de Formas (Shape Tool)</h3>
+<h3 id="formas">2.5. Ferramenta de Formas (Shape Tool)</h3>
 
 
 
@@ -218,6 +232,7 @@ Para ativar essa opção basta clicar e arrastar o controlador interno (indicado
         <td><div align="center"><img src="https://i.imgur.com/P4TwUhx.png" title="source: imgur.com" /></div></td>
     </tr>
 </table>
+
 
 Observe que após a criação do arco, aparecem outras 3 opções no Painel de Propriedades:
 
@@ -274,7 +289,7 @@ Esta ferramenta permite adicionar uma imagem ou um vídeo no seu design. Ao clic
 
 <br />
 
-<h3>2.6. Ferramenta Caneta (Pen Tool)</h3>
+<h3 id="caneta">2.6. Ferramenta Caneta (Pen Tool)</h3>
 
 
 
@@ -282,7 +297,7 @@ A ferramenta de caneta permite desenhar formas customizadas e curvas precisas. �
 
 <br />
 
-<h3>2.7. Ferramenta de Texto (Text Tool)</h3>
+<h3 id="texto">2.7. Ferramenta de Texto (Text Tool)</h3>
 
 
 
@@ -355,11 +370,10 @@ Para salvar um estilo basta, com as propriedades definidas, clicar nos quatro po
 Agora é só aplicar esse estilo nos elementos de texto que você precisa.
 
 Lembrando que você pode editar esse estilo mesmo depois de pronto. Fazendo isso, todos os elementos de texto que recebem esse text styles vão mudar em tempo real.
-6 
 
 <br />
 
-<h3>2.8. Ferramenta Recursos (Resources)</h3>
+<h3 id="recursos">2.8. Ferramenta Recursos (Resources)</h3>
 
 
 
@@ -377,7 +391,7 @@ Na janela **Resources** você encontrará:
 
 <br />
 
-<h3>2.9. Ferramenta Mão (Hand)</h3>
+<h3 id="mao">2.9. Ferramenta Mão (Hand)</h3>
 
 
 
@@ -385,7 +399,7 @@ A ferramenta **Mão** permite mover-se pelo seu documento e deslocar imagens. El
 
 <br />
 
-<h3>2.10. Ferramenta de Comentários (Comment Tool)</h3>
+<h3 id="comentarios">2.10. Ferramenta de Comentários (Comment Tool)</h3>
 
 
 

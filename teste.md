@@ -2,24 +2,6 @@
 
 <br />
 
-<h2>O que Veremos por aqui?</h2>
-
-1. <a href="#interface"> Interface</a>
-2. <a href="#ferramentas">Ferramentas</a>
-   ​	2.1. <a href="#selecao">Ferramenta de Seleção</a>
-   ​	2.2. <a href="#frame">Frame</a>
-   ​	2.3. <a href="#secao">Seção</a>
-   ​	2.4. <a href="#slices">Slices</a>
-   ​	2.5. <a href="#formas">Formas</a>
-   ​	2.6. <a href="#caneta">Caneta</a>
-   ​	2.7. <a href="#texto">Texto</a>
-   ​	2.8. <a href="#recursos">Recursos</a>
-   ​	2.9. <a href="#mao">Ferramenta Mão</a>
-   ​	2.10. <a href="#comentarios">Ferramenta Comentários</a>
-3. <a href="#interface">Interface</a>
-
-
-
 O **Figma** é uma ferramenta de Design baseada em vetor, que foi criada em 2015, sendo a primeira ferramenta que combinava acessibilidade web com as funcionalidades de um aplicativo nativo.
 
 O Figma é uma ferramenta que foi desenvolvida com a visão de **tornar o Design acessível para todos**. Graças as suas funcionalidades e atualizações altamente focadas nas necessidades dos usuários, se tornou a ferramenta de prototipação mais utilizada do mundo.

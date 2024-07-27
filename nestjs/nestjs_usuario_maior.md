@@ -1,4 +1,4 @@
-<h1>Checar se o usuário é maior de idade</h1>
+<h1>Projeto Integrador - Checar se o usuário é maior de idade</h1>
 
 <br />
 

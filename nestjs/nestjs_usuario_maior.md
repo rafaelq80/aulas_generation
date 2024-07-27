@@ -9,7 +9,7 @@
 Adicione o atributo **dataNascimento** na Entidade **Usuario**:
 
 ```ts
-	@IsDateString()
+    @IsDateString()
     @Column({type: "date"})
     dataNascimento: Date
 ```
@@ -65,7 +65,7 @@ ERROR [ExceptionsHandler] (0 , moment_1.default) is not a function
 Na Classe de Serviço **UsuarioService**, adicione o Método abaixo:
 
 ```ts
-	public calcularIdade(dataNascimento: Date): number {
+    public calcularIdade(dataNascimento: Date): number {
 
         var agora = moment(new Date()); 
         var aniversario = moment(dataNascimento);

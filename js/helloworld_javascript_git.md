@@ -328,7 +328,7 @@ git push origin main
 
 <br />
 
-<h2>Criei um novo Projeto na pasta javascript. Como envoar para o Github?</h2>
+<h2>Criei um novo Projeto na pasta javascript. Como enviar para o Github?</h2>
 
 
 

@@ -166,21 +166,34 @@ lerna-debug.log*
 
 Vamos instalar a Biblioteca **Readline-Sync**, que nos permitirá fazer a leitura de dados via teclado nos próximos projetos, que serão criados na pasta **javascript**:
 
-1. Vamos instalar o **Pacote Readline-Sync** através do comando abaixo:
+1. Primeiro vamos inicializar o ambiente Node dentro da pasta javascript, através do comando abaixo:
+
+```bash
+npm init -y
+```
+
+2. O comando acima criará dentro da pasta o arquivo **package.json**, responsável por criar a lista de Bibliotecas instaladas no projeto.
+3. Na sequência, vamos instalar o **Pacote Readline-Sync** através do comando abaixo:
 
 ```bash
 npm install readline-sync
 ```
 
-2. Verifique se o **Pacote Readline-Sync** foi instalado corretamente através do comando abaixo:
+4. Verifique se o **Pacote Readline-Sync** foi instalado corretamente através do comando abaixo:
 
 ```bash
 npm list
 ```
 
-3. Será exibida a lista de pacotes instalados. Verifique se o **Pacote Readline-Sync** está instalado no seu projeto:
+5. Será exibida a lista de pacotes instalados. Verifique se o **Pacote Readline-Sync** está instalado no seu projeto:
 
 <div><img src="https://i.imgur.com/zJt3v3D.png" title="source: imgur.com" /></div>
+
+6. Observe que após a instalação da Biblioteca **Readline-Sync** foi gerado o arquivo **package-lock.json** e a pasta **node_modules**.
+
+> O arquivo **package-lock.json** registra as versões exatas das dependências instaladas, incluindo as dependências de terceiros. Isso evita que diferentes desenvolvedores instalem versões incompatíveis ou que atualizações automáticas de dependências quebrem o código.
+>
+> A pasta **node_modules** é gerada automaticamente quando você instala alguma biblioteca via **npm**. Ela contém todas as dependências do seu projeto, incluindo suas dependências e sub dependências, ou seja, pacotes que suas bibliotecas instaladas também precisam para funcionar.
 
 <br />
 

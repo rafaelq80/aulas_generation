@@ -52,7 +52,7 @@ O que veremos por aqui:
 
 | Pasta / Arquivo | Conteúdo                                                     |
 | --------------- | ------------------------------------------------------------ |
-| **.git**        | Pasta do Git, responsável por criar o versionamento do código. Esta pasta é oculta (repare que ela está debotada) e sempre será ignorada pelo Git, entretanto ela não pode ser apagada, senão você perderá todo o histórico do seu Repositório. |
+| **.git**        | Pasta do Git, responsável por criar o versionamento do código. Esta pasta é oculta (repare que ela está desbotada) e sempre será ignorada pelo Git, entretanto ela não pode ser apagada, senão você perderá todo o histórico do seu Repositório. |
 | **.metadata**   | Pasta que contém as configurações do Eclipse / STS. Esta pasta não pode ser apagada, senão você perderá todas as configurações do seu Eclipse / STS |
 | **aula_01**     | Pasta que contém os códigos da sessão de hoje                |
 | **helloworld**  | Pasta que contém o código do Projeto Hello World             |

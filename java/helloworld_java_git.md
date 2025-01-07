@@ -32,7 +32,7 @@ Vamos configurar a pasta **Workspace** do Eclipse/STS para se tornar um Reposit�
 touch .gitignore
 ```
 
-6. Crie o arquivo **.gitignore**, através do comando abaixo:
+6. Abra o arquivo **.gitignore**, através do comando abaixo:
 
 ```bash
 notepad .gitignore
@@ -369,3 +369,4 @@ git push origin main
 4. Volte para o Github, atualize a página do seu **Repositório Remoto** e verifique se ele foi atualizado.
 
 <br />
+

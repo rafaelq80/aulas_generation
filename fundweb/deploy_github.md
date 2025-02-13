@@ -11,7 +11,7 @@ O **GitHub Pages** é um serviço gratuito, oferecido pelo GitHub, que permite h
 
 
 1. **Hospedagem Gratuita**: Você pode hospedar seu site gratuitamente no domínio `github.io` ou em um domínio personalizado.
-   
+
 2. **Integração com GitHub**: O GitHub Pages é diretamente integrado com repositórios do GitHub, o que facilita o processo de publicação. Basta efetuar um push no repositório remoto, que o site será automaticamente atualizado.
 
 3. **Suporte para Jekyll**: GitHub Pages suporta o Jekyll, um gerador de sites estáticos que permite criar sites complexos e dinâmicos usando Markdown. Ele converte automaticamente seus arquivos Markdown em HTML, facilitando a criação de blogs e documentações.
@@ -42,7 +42,33 @@ Após esta breve introdução, vamos aprender na prática como hospedar o Projet
 
 <br />
 
-<h2>👣 Passo 01 - Publicar o Projeto no GitHub Pages</h2>
+<h2>👣 Passo 01 - Checklist</h2>
+
+
+
+Antes de iniciar o deploy, verifique os seguintes itens do seu projeto:
+
+1. Verifique se todas as pastas e arquivos do projeto estão com os nomes escritos com letras minúsculas;
+2. Verifique se as importações dos arquivos CSS e JavaScript (JS) estão com o **caminho relativo**:
+
+```html
+<!--  Link para a Folha de Estilos CSS -->
+<link rel="stylesheet" href="./assets/css/styles.css">
+
+<!-- Script JavaScript -->
+<script src="./assets/js/script.js"></script>
+```
+
+3. Verifique se todas as imagens, áudios e vídeos também foram adicionados com o **caminho relativo**:
+
+```html
+<!-- Imagem com caminho Relativo -->
+<img src="./assets/img/astronauta.svg" alt="Capacete de Astronauta Animado">
+```
+
+<br />
+
+<h2>👣 Passo 02 - Publicar o Projeto no GitHub Pages</h2>
 
 
 
@@ -85,7 +111,7 @@ Após esta breve introdução, vamos aprender na prática como hospedar o Projet
 
 <br />
 
-<h2>👣 Passo 02 - Reconfigurar o Formulário de Contato</h2>
+<h2>👣 Passo 03 - Reconfigurar o Formulário de Contato</h2>
 
 
 
@@ -137,7 +163,7 @@ Como o deploy cria um endereço WEB para acessar o Projeto Portfólio através d
 
 <br />
 
-<h2>👣 Passo 02 - Exibir o Enderelo do Deploy no Repositório</h2>
+<h2>👣 Passo 04 - Exibir o Enderelo do Deploy no Repositório</h2>
 
 
 

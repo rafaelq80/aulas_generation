@@ -10,35 +10,27 @@ Vamos configurar a pasta **Workspace** do Eclipse/STS para se tornar um Reposit�
 
 
 
-1. No Eclipse/STS, clique com o botão direito do mouse sobre a pasta do projeto (no exemplo abaixo, **helloworld**). No menu que será aberto, clique na opção **Show in 🡒 System Explorer**, para exibir a pasta no Windows Explorer.
+1. No Eclipse/STS, clique com o botão direito do mouse sobre a pasta do projeto (no exemplo abaixo, **helloworld**). No menu que será aberto, clique na opção **Show in Local Terminal 🡒 Git Bash**, para exibir a pasta no Windows Explorer.
 
-<div align="center"><img src="https://i.imgur.com/cR65mhl.png" title="source: imgur.com" /></div>
+<div align="center"><img src=https://i.imgur.com/Nffi8qm.png" title="source: imgur.com" /></div>
 
-2. Será aberta a janela do Windows Explorer, mostrando todas as pastas, com todos os projetos criados até o momento.
+2. Será aberta a Janela do Git Bash, como mostra a imagem abaixo, já na pasta da Workspace do Eclipse/STS.
 
-<div align="center"><img src="https://i.imgur.com/jgdxc43.png" title="source: imgur.com" /></div>
+<div align="center"><img src="https://i.imgur.com/UH5uUpt.png" title="source: imgur.com" /></div>
 
-3. Clique com o botão direito do mouse em qualquer ponto da janela do Windows Explorer, que não tenha nenhuma pasta. No menu que será aberto, clique na opção **Git Bash Here**, para abrir o **Terminal do Git** nesta pasta.
-
-<div align="center"><img src="https://i.imgur.com/h34v3yG.png" title="source: imgur.com" /></div>
-
-4. Será aberto o Git Bash, como mostra a imagem abaixo, já na pasta da Workspace do Eclipse/STS.
-
-<div align="center"><img src="https://i.imgur.com/To5Ttfc.png" title="source: imgur.com" /></div>
-
-5. Crie o arquivo **.gitignore**, através do comando abaixo:
+3. Crie o arquivo **.gitignore**, através do comando abaixo:
 
 ```bash
 touch .gitignore
 ```
 
-6. Abra o arquivo **.gitignore**, através do comando abaixo:
+4. Abra o arquivo **.gitignore**, através do comando abaixo:
 
 ```bash
 notepad .gitignore
 ```
 
-7. Será aberta a janela do **Notepad (Bloco de Notas)**, solicitando a criação do arquivo. Clique no botão **Sim**, para continuar.
+5. Será aberta a janela do **Notepad (Bloco de Notas)**, solicitando a criação do arquivo. Clique no botão **Sim**, para continuar.
 
 <div align="center"><img src="https://i.imgur.com/IkFtVpL.png" title="source: imgur.com" /></div>
 
@@ -63,7 +55,7 @@ notepad .gitignore
 
 <br />
 
-8. No arquivo **.gitignore**, adicione as linhas abaixo e na sequência salve e feche o arquivo.
+6. No arquivo **.gitignore**, adicione as linhas abaixo e na sequência salve e feche o arquivo.
 
 ```bash
 .metadata
@@ -124,64 +116,64 @@ local.properties
 .worksheet
 ```
 
-9. De volta ao **Git Bash**, digite o comando abaixo para criar o Repositório Local dentro da pasta **Worskspace do Eclipse/STS**.
+7. De volta ao **Git Bash**, digite o comando abaixo para criar o Repositório Local dentro da pasta **Worskspace do Eclipse/STS**.
 
 ```bash
 git init
 ```
 
-10. Digite o comando abaixo para adicionar o Projeto na **Stage Area** do Git:
+8. Digite o comando abaixo para adicionar o Projeto na **Stage Area** do Git:
 
 
 ```bash
 git add .
 ```
 
-11. Na sequência, faça o commit do Projeto, através do comando abaixo:
+9. Na sequência, faça o commit do Projeto, através do comando abaixo:
 
 ```bash
-git commit -m "Projeto Hello World"
+git commit -m ":tada: Commit Inicial"
 ```
 
-12. Acesse o seu **Github** e crie um novo **Repositório**, através da opção **New repository**, como mostra a imagem abaixo:
+10. Acesse o seu **Github** e crie um novo **Repositório**, através da opção **New repository**, como mostra a imagem abaixo:
 
 <div align="center"><img src="https://i.imgur.com/GncQ1uf.png" title="source: imgur.com" /></div>
 
-13. Crie o **Repositório Remoto** chamado **java**:
+11. Crie o **Repositório Remoto** chamado **java**:
 
 <div align="center"><img src="https://i.imgur.com/zp1RlIP.png" title="source: imgur.com" /></div>
 
-14. Clique no botão **Create Repository**, para criar o Repositório:
+12. Clique no botão **Create Repository**, para criar o Repositório:
 
 <div align="center"><img src="https://i.imgur.com/d9cRI9m.png" title="source: imgur.com" /></div>
 
-15. Na próxima janela, copie o endereço **HTTPS do Repositório Remoto**, indicado na imagem abaixo:
+13. Na próxima janela, copie o endereço **HTTPS do Repositório Remoto**, indicado na imagem abaixo:
 
 <div align="center"><img src="https://i.imgur.com/pIfU6Sx.png" title="source: imgur.com" /></div>
 
-16. Volte para o Git Bash e execute o comando abaixo para conectar o seu **Repositório Local** com o seu **Repositório Remoto**, onde o endereço **https**, será o endereço do seu **Repositório Remoto**.
+14. Volte para o Git Bash e execute o comando abaixo para conectar o seu **Repositório Local** com o seu **Repositório Remoto**, onde o endereço **https**, será o endereço do seu **Repositório Remoto**.
 
 ```bash
 git remote add origin https://github.com/rafaelq80/java.git
 ```
 
-17. Digite o comando abaixo para checar se o seu  **Repositório Local** está conectado com o seu **Repositório Remoto**:
+15. Digite o comando abaixo para checar se o seu  **Repositório Local** está conectado com o seu **Repositório Remoto**:
 
 ```bash
 git remote -v
 ```
 
-18. Se estiver conectado, será exibida uma mensagem, semelhante a imagem abaixo:
+16. Se estiver conectado, será exibida uma mensagem, semelhante a imagem abaixo:
 
 <div align="center"><img src="https://i.imgur.com/XWee1oq.png" title="source: imgur.com" /></div>
 
-19. Na sequência, utilize o comando abaixo, para sincronizar o conteúdo do **Repositório Local** com o seu **Repositório Remoto**:
+17. Na sequência, utilize o comando abaixo, para sincronizar o conteúdo do **Repositório Local** com o seu **Repositório Remoto**:
 
 ```bash
 git push origin main
 ```
 
-20. Volte para o Github, atualize a página do seu **Repositório Remoto** e verifique se ele está semelhante a imagem abaixo:
+18. Volte para o Github, atualize a página do seu **Repositório Remoto** e verifique se ele está semelhante a imagem abaixo:
 
 <div align="center"><img src="https://i.imgur.com/HQANKTE.png" title="source: imgur.com" /></div>
 
@@ -369,4 +361,3 @@ git push origin main
 4. Volte para o Github, atualize a página do seu **Repositório Remoto** e verifique se ele foi atualizado.
 
 <br />
-

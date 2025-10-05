@@ -101,32 +101,42 @@ Nela você encontra **plugins e ferramentas** (gratuitas e pagas) para adicionar
 
 <div align="center"><img src="https://i.imgur.com/p8AtjY0.png" alt="https://i.imgur.com/p8AtjY0.png" /></div>
 
-3. Será exibida a janela **GitHub Copilot Authorization**, contendo a Chave de Autorização do dispositivo (Device Code). Esta chave tem validade de 60 segundos. Caso ela não seja inserida no GitHub dentro do prazo, será necessário refazer o processo. Clique no botão **Copy Code and Open**
+3. Será exibida a janela **GitHub Copilot Authorization**, contendo a Chave de Autorização do dispositivo (Device Code). Clique no botão **Copy Code and Open**
 
 <div align="center"><img src="https://i.imgur.com/uMAN3Ez.png" alt="https://i.imgur.com/uMAN3Ez.png" /></div>
 
-4. Você será redirecionado para o seu navegador, na tela **Device Activation**, caso você esteja logado na sua conta do GitHub. Caso não esteja, será solicitado o seu login antes de exibira a tela abaixo. Clique no botão **Continue**
+4. Será aberta janela abaixo, indicando que você tem 60 segundos para adicionar a chave de ativação no GitHub. Caso ela não seja inserida no GitHub dentro do prazo, será necessário refazer o processo.
+
+<div align="center"><img src="https://i.imgur.com/PZ6YYiY.png" title="source: imgur.com" /></div>
+
+5. Você será redirecionado para o seu navegador, na tela **Device Activation**, caso você esteja logado na sua conta do GitHub. Caso não esteja, será solicitado o seu login antes de exibir a tela abaixo. Clique no botão **Continue**
 
 <div align="center"><img src="https://i.imgur.com/xUrx15v.png" alt="https://i.imgur.com/xUrx15v.png" /></div>
 
-5. Na próxima tela, cole o código de ativação, que foi copiado anteriormente do Eclipse/STS e clique no botão **Continue**
+6. Na próxima tela, cole o código de ativação, que foi copiado anteriormente do Eclipse/STS e clique no botão **Continue**
 
 <div align="center"><img src="https://i.imgur.com/K133bUL.png" alt="https://i.imgur.com/K133bUL.png" /></div>
 
-6. Na próxima tela, autorize o uso do **GitHub Copilot** na sua conta do GitHub clicando no botão **Authorize GitHub Copilot IDE Plugin**
+7. Na próxima tela, autorize o uso do **GitHub Copilot** na sua conta do GitHub clicando no botão **Authorize GitHub Copilot IDE Plugin**
 
 <div align="center"><img src="https://i.imgur.com/ePk0gGC.png" alt="https://i.imgur.com/ePk0gGC.png" /></div>
 
-7. Ao final será exibida a mensagem de confirmação abaixo:
+8. Ao final será exibida a mensagem de confirmação abaixo:
 
 <div align="center"><img src="https://i.imgur.com/h9PHMuk.png" alt="https://i.imgur.com/h9PHMuk.png" /></div>
 
-8. Ao retornar para o Eclipse/STS será exibida uma mensagem de confirmação da instalação
-9. Clique no logo do **Copilot4Eclipse** e no menu que será aberto, observe que na opção **Status** será exibida a mensagem: **Copilot4Eclipse ready**, indicando que o plugin está ativado e pronto para uso.
+9. Ao retornar para o Eclipse/STS será exibida uma mensagem de confirmação da ativação. Clique em **OK** para continuar.
+
+<div align="center"><img src="https://i.imgur.com/t1tnrNh.png" title="source: imgur.com" /></div>
+
+10. Clique no logo do **Copilot4Eclipse** e no menu que será aberto, observe que na opção **Status** será exibida a mensagem: **Copilot4Eclipse ready**, indicando que o plugin está ativado e pronto para uso.
 
 <div align="center"><img src="https://i.imgur.com/CteGvdk.png" alt="https://i.imgur.com/CteGvdk.png" /></div>
 
-10. Caso a opção **Status** ainda esteja exibindo a mensagem: **GitHub Copilot sign in required**, reinicie o Eclipse/STS e verifique se o Status foi atualizado.
+11. Caso a opção **Status** ainda esteja exibindo a mensagem: **GitHub Copilot sign in required**, reinicie o Eclipse/STS e verifique se o Status foi atualizado.
+12. Após a ativação, será exibida a mensagem abaixo, ao lado do ícone do **Copilot4GitHub**, contendo as informações da licença gratuita do GitHub Copliot. Para fechar, clique no **X**.
+
+<div align="center"><img src="https://i.imgur.com/Hq9kHRN.png" title="source: imgur.com" /></div>
 
 <br />
 

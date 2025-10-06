@@ -2,13 +2,28 @@
 
 <br />
 
-O **Copilot4Eclipse** é o plugin oficial que integra o **GitHub Copilot** ao Eclipse IDE, permitindo receber sugestões de código geradas por IA diretamente enquanto você programa.
+O **Copilot4Eclipse** é o plugin oficial que integra o **GitHub Copilot** ao Eclipse IDE, permitindo que você receba sugestões de código geradas por inteligência artificial diretamente enquanto programa.
 
 <div align="center"><img src="https://i.imgur.com/V5AvOqm.png" alt="https://i.imgur.com/V5AvOqm.png" /></div>
 
-O **GitHub Copilot** é um assistente de programação baseado em **inteligência artificial** criado pela **GitHub** em parceria com a **OpenAI**.
+O **GitHub Copilot**, desenvolvido pela **GitHub** em parceria com a **OpenAI**, atua como um **“parceiro de programação”**. Ele sugere automaticamente trechos de código, funções inteiras, comentários e até testes, com base no que você está digitando e no contexto do projeto.
 
-Ele funciona como um **“parceiro de programação”** que sugere automaticamente trechos de código, funções inteiras, comentários e até testes, com base no que você está digitando e no contexto do arquivo.
+Ao instalar e ativar o **Copilot4Eclipse**, você será redirecionado para o site do GitHub para habilitar o **GitHub Copilot Free Trial**, caso ainda não possua uma conta com acesso ao plano **Pro** ou **Student**.
+
+⚠️ **Limitações da conta gratuita:**
+
+- Até **2.000 sugestões de código (code completions) por mês** – equivalente a cerca de **80 por dia útil**.
+- Até **50 requisições no chat por mês**.
+
+Se o limite for atingido, você precisará **aguardar a renovação da cota**, que ocorre no mesmo dia de cada mês em que o serviço foi ativado, ou **assinar o plano Pro** (pago) para continuar utilizando imediatamente.
+
+**Exemplo prático:**
+
+- Se a ativação ocorreu em **15 de janeiro**, a renovação da cota acontecerá todo dia **15** de cada mês.
+
+Quando o limite for ultrapassado, será exibida a mensagem:
+
+> **You've reached your monthly chat messages quota. Upgrade to Copilot Pro (30-day free trial) or wait for your allowance to renew.**
 
 <br />
 

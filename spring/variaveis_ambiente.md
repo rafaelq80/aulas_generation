@@ -18,7 +18,7 @@ A Dependência **Dotenv** permite:
 - Ler automaticamente o arquivo `.env` na inicialização;
 - Tornar essas variáveis disponíveis dentro do Spring.
 
-Vamos configurar o Spring para ler arquivos **.env**:
+Vamos configurar o **Projeto Loja de Games** para ler arquivos **.env**:
 
 <br />
 
@@ -137,7 +137,32 @@ JWT_SECRET=292d7161c76174f0784a14f860756497073fe5c187de42f87a2060c5f06c7877
 
 <br />
 
-<h2>👣 Passo 04 - Configurar o Banco de dados</h2>
+<h2>👣 Passo 04 - Adicionar o arquivo .env no arquivo .gitignore</h2>
+
+
+
+Vamos modiﬁcar o nosso arquivo **.gitignore**, para que o nosso arquivo **.env** não seja enviado para o Github, funcionando apenas no nosso computador, da seguinte forma:
+
+1. Abra o arquivo **.gitignore**, localizado na pasta raiz do projeto:
+
+<div align="center"><img src="https://imgur.com/QRrsbSR.png" title="source: imgur.com" /></div>
+
+2. Adicione a linha abaixo no arquivo **.gitignore**:
+
+```bash
+### Variáveis de Ambiente ###
+.env
+```
+
+3. Após a alteração, o arquivo **.gitignore** ficará semelhante a imagem abaixo:
+
+<div align="center"><img src="https://imgur.com/UjTeOmn.png" title="source: imgur.com" /></div>
+
+A linha adicionada pode ser colocada em qualquer ponto do arquivo, não precisa estar exatamente no mesmo local indicado na imagem acima.
+
+<br />
+
+<h2>👣 Passo 05 - Configurar o Banco de dados</h2>
 
 
 
@@ -169,7 +194,7 @@ Observe que **todas as configurações do banco de dados foram substituídas pel
 
 <br />
 
-<h2>👣 Passo 05 - Criar a Classe DotenvConfig</h2>
+<h2>👣 Passo 06 - Criar a Classe DotenvConfig</h2>
 
 
 
@@ -213,7 +238,7 @@ Por fim, nas **linhas 31 e 32**, o `envMap` é adicionado como uma **nova fonte 
 
 <br />
 
-<h2>👣 Passo 06 - Configurar a inicialização da Classe DotenvConfig</h2>
+<h2>👣 Passo 07 - Configurar a inicialização da Classe DotenvConfig</h2>
 
 
 
@@ -247,14 +272,45 @@ Em resumo, essas duas linhas **carregam o `.env` e transformam suas variáveis e
 
 <br />
 
-<h2>👣 Passo 07 - Executar e Testar o Projeto</h2>
+<h2>👣 Passo 08 - Configurar a Secret na Classe JwtService</h2>
 
 
 
-1. Digite o comando abaixo para compilar e executar o projeto, caso não esteja em execução:
+Vamos configurar a Chave de assinatura do Token JWT (Secret), na Classe **JwtService**, através da variável de ambiente criada no arquivo **.env**:
 
-```bash
-npm run start:dev
+1. Abra a **Classe JwtService**, localizada no pacote **security**
+2. localize a linha indicada na imagem abaixo:
+
+<div align="center"><img src="https://imgur.com/EhNaPnQ.png" title="source: imgur.com" /></div>
+
+3. Substitua esta linha pelo trecho de código abaixo:
+
+```java
+	private static final Dotenv dotenv = Dotenv.load();
+	
+    private static final String SECRET = dotenv.get("API_KEY");
 ```
 
-2. Teste a aplicação e verifique se tudo está funcionando.
+4. O resultado da alteração você confere abaixo:
+
+<div align="center"><img src="https://imgur.com/fNKVWXh.png" title="source: imgur.com" /></div>
+
+**Linha 21:** A declaração `private static final Dotenv dotenv = Dotenv.load();` cria uma instância da classe `Dotenv` que é responsável por carregar as variáveis de ambiente definidas em um arquivo `.env` localizado na raiz do projeto. 
+
+O modificador `static` garante que essa instância seja compartilhada por toda a classe e carregada apenas uma vez quando a classe for inicializada pela JVM. 
+
+O modificador `final` indica que essa referência não poderá ser alterada após a inicialização. O método `load()` lê o arquivo `.env` e armazena todas as variáveis de ambiente em memória para acesso posterior.
+
+**Linha 23:** A declaração `private static final String SECRET = dotenv.get("JWT_SECRET");` utiliza a instância de `Dotenv` criada anteriormente para recuperar o valor da variável de ambiente chamada `JWT_SECRET` que está definida no arquivo `.env`. O método `get("JWT_SECRET")` busca a chave correspondente no arquivo e retorna seu valor como uma String. 
+
+Esta abordagem é uma boa prática de segurança, pois evita expor informações sensíveis (como chaves secretas, senhas ou tokens) diretamente no código-fonte. O valor recuperado é armazenado na constante `SECRET` que será utilizada para assinar e validar os tokens JWT. 
+
+O modificador `static final` garante que esse valor seja carregado uma única vez durante a inicialização da classe e não possa ser modificado posteriormente, mantendo a integridade da chave secreta durante toda a execução da aplicação.
+
+<br />
+
+<h2>👣 Passo 09 - Executar e Testar o Projeto</h2>
+
+
+
+1. Execute e verifique se tudo está funcionando corretamente.

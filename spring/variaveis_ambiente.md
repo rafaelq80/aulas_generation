@@ -194,55 +194,11 @@ Observe que **todas as configurações do banco de dados foram substituídas pel
 
 <br />
 
-<h2>👣 Passo 06 - Criar a Classe DotenvConfig</h2>
+<h2>👣 Passo 06 - Configurar a inicialização da Dependência Dotenv</h2>
 
 
 
-A `DotenvConfig` é uma **classe de configuração** usada para **carregar variáveis de ambiente a partir de um arquivo `.env`** e disponibilizá-las para a aplicação Spring Boot.
-
-**Função principal:**
-
-- Lê o arquivo `.env` na inicialização da aplicação;
-- Torna os valores acessíveis através de `System.getenv()` ou propriedades do Spring (`@Value("${VARIAVEL}")`);
-- Evita que informações sensíveis fiquem no código-fonte.
-
-Vamos criar a classe **DotenvConfig** dentro do pacote **configuration**:
-
-1. Crie a classe **DotenvConfig** dentro do pacote **configuration**, como vemos na imagem abaixo:
-
-<div align="center"><img src="https://imgur.com/nxyXhui.png" title="source: imgur.com" /></div>
-
-2. Observe que será criado o pacote **com.generation.lojagames.configuration** e dentro dele, será criada a Classe **Dotenvconfig**:
-
-<div align="center"><img src="https://imgur.com/ikISAdE.png" title="source: imgur.com" /></div>
-
-3. Adicione o código abaixo dentro da classe **DotenvConfig** e salve o arquivo:
-
-<div align="center"><img src="https://imgur.com/k68yHNo.png" title="source: imgur.com" /></div>
-
-Na **linha 14**, a anotação **`@Configuration`** indica que a classe é uma **classe de configuração do Spring**, ou seja, ela pode definir beans e configurar componentes da aplicação de forma centralizada.
-
-Na **linha 15**, a classe implementa a interface **`ApplicationContextInitializer`**, que permite **executar código durante a inicialização do contexto do Spring**, antes que todos os beans da aplicação — como entidades, services e controllers — sejam carregados. Isso é útil quando precisamos preparar ou modificar propriedades do ambiente antes do restante da aplicação ser inicializado.
-
-Nas **linhas 17 e 18**, o método obrigatório da interface, **`initialize`**, é implementado. É dentro desse método que colocamos a lógica de carregamento das variáveis de ambiente.
-
-Entre as **linhas 19 e 22**, é criada uma instância da classe **`Dotenv`**, responsável por **ler o arquivo `.env`**. O código está configurado para procurar o arquivo na **pasta raiz do projeto**, ignorar o erro caso ele não exista e carregar todas as variáveis definidas nesse arquivo.
-
-Na **linha 24**, é obtido o **`ConfigurableEnvironment`** do Spring, que representa o ambiente configurável da aplicação. Isso permite que novas propriedades sejam adicionadas dinamicamente ao contexto da aplicação.
-
-Na **linha 25**, é criada uma coleção **`Map`** vazia chamada `envMap`, que será usada para armazenar as variáveis carregadas do `.env`.
-
-Entre as **linhas 27 e 29**, o código percorre todas as entradas do arquivo `.env` (cada variável definida como `chave=valor`) e adiciona cada par chave-valor ao `envMap`.
-
-Por fim, nas **linhas 31 e 32**, o `envMap` é adicionado como uma **nova fonte de propriedades** ao Spring através de `MapPropertySource`. Ao usar `addFirst`, garantimos que essas variáveis tenham **prioridade máxima**, podendo **sobrescrever outras propriedades** definidas em `application.properties` ou em outras fontes de configuração do Spring.
-
-<br />
-
-<h2>👣 Passo 07 - Configurar a inicialização da Classe DotenvConfig</h2>
-
-
-
-Vamos adicionar a Classe `DotenvConfig` para inicializar dentro da Classe principal da aplicação Spring Boot:
+Vamos configurar a inicialização da Deepndência `Dotenv` dentro da Classe principal da aplicação Spring Boot:
 
 1. Abra a Classe principal da aplicação Spring. No projeto Loja de Games, a classe se chama **LojagamesApplication** e está localizada no pacote principal da aplicação - **com.generation.lojagames**, como vemos na imagem abaixo:
 
@@ -255,20 +211,59 @@ Vamos adicionar a Classe `DotenvConfig` para inicializar dentro da Classe princi
 3. No local indicado, insira as linhas abaixo:
 
 ```java
-Dotenv dotenv = Dotenv.load();
 
-dotenv.entries().forEach(entry -> System.setProperty(entry.getKey(), entry.getValue()));
+try {
+	Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
+
+	dotenv.entries().forEach(entry -> System.setProperty(entry.getKey(), entry.getValue()));
+} catch (Exception e) {
+	System.out.println("Running without .env file - using environment variables");
+}
 ```
 
 4. Na imagem abaixo, vemos o resultado:
 
-<div align="center"><img src="https://imgur.com/ElnoVY6.png" title="source: imgur.com" /></div>
+<div align="center"><img src="https://imgur.com/6VmNHlE.png" title="source: imgur.com" /></div>
 
-Na **linha 13**, é criada uma instância da classe **`Dotenv`**, que automaticamente **procura e carrega o arquivo `.env`** na raiz do projeto. Essa chamada lê todas as variáveis definidas no arquivo, tornando-as disponíveis para uso dentro da aplicação.
+Na **linha 13**, o código entra em um **bloco `try`**, que serve para **tentar executar o carregamento do arquivo `.env`** e capturar qualquer exceção caso o arquivo não exista ou ocorra algum erro durante o processo.
 
-Na **linha 15**, o código **percorre todas as entradas do `.env`**, ou seja, cada variável definida como `chave=valor`. Para cada entrada, é chamado `System.setProperty`, que **adiciona a variável como uma propriedade do sistema Java**. Isso faz com que as variáveis possam ser acessadas a partir de qualquer ponto da aplicação, inclusive pelo Spring, usando métodos como `System.getProperty("NOME_DA_VARIAVEL")` ou através da anotação `@Value("${NOME_DA_VARIAVEL}")`.
+Na **linha 15, é criada uma instância da classe **`Dotenv`**utilizando **`Dotenv.configure().ignoreIfMissing().load()`**. Essa chamada faz com que a aplicação **procure automaticamente pelo arquivo `.env` na raiz do projeto**. 
 
-Em resumo, essas duas linhas **carregam o `.env` e transformam suas variáveis em propriedades do sistema**, permitindo que a aplicação utilize essas informações sensíveis sem que elas precisem estar inseridas no código-fonte.
+O parâmetro **`ignoreIfMissing()`** garante que, se o arquivo não existir, **nenhum erro será lançado**, permitindo que a aplicação continue rodando normalmente.
+
+Na **linha 17**, o código **percorre todas as entradas do arquivo `.env`** — ou seja, cada variável definida no padrão `chave=valor`. Para cada entrada, é chamado **`System.setProperty(entry.getKey(), entry.getValue())`**, que **adiciona a variável como propriedade do sistema Java**.
+
+Dessa forma, essas variáveis ficam **disponíveis em toda a aplicação**, podendo ser acessadas via `System.getProperty("NOME_DA_VARIAVEL")` ou usando **Spring** com `@Value("${NOME_DA_VARIAVEL}")`.
+
+Na **linha 18**, o bloco `catch` captura qualquer exceção lançada durante o processo de leitura do arquivo `.env`. Se ocorrer um erro, a aplicação **exibe uma mensagem no console**: `"Running without .env file - using environment variables"`. Isso indica que a aplicação continuará funcionando, **utilizando apenas as variáveis de ambiente do sistema**, sem depender do `.env`.
+
+✅ **Resumo:** Esse trecho **carrega variáveis do arquivo `.env` e as transforma em propriedades do sistema**, garantindo que a aplicação possa acessar informações sensíveis sem incluí-las diretamente no código-fonte, e **trata a ausência do arquivo de forma segura**.
+
+<br />
+
+<h2>👣 Passo 07 - Adicionar a variável JWT_SECRET no arquivo application.properties</h2>
+
+
+
+Depois de configurar a Spring Security, podemos ocultar a `secret` através de variáveis de ambientes. Vamos adicionar a variável **`JWT_SECRET`** dentro do arquivo **`application.properties`**:
+
+1. Abra o arquivo **application.properties** e adicione no final do seu conteúdo o trecho de código abaixo:
+
+```
+jwt.secret=${JWT_SECRET}
+```
+
+2. Ao adicionar a variável, note que será exibida uma mensagem de **warning**, como vemos na imagem abaixo:
+
+<div align="center"><img src="https://imgur.com/fSXkXoL.png" title="source: imgur.com" /></div>
+
+3. Passe o mouse sobre a variável (`jwt.secret`) e observe que será exibida a mensagem abaixo, pedindo para criar um metadata para a variável de ambiente.
+
+<div align="center"><img src="https://imgur.com/ggge7KC.png" title="source: imgur.com" /></div>
+
+4. Clique no link **Create metadata for** e observe que o warning desaparecerá.
+
+> No contexto do STS/Eclipse, o **metadata** é apenas um **registro descritivo da propriedade**. Ele não altera o comportamento do Spring Boot nem do JWT; serve apenas para **melhorar o suporte da IDE**, autocomplete e documentação interna.
 
 <br />
 
@@ -281,36 +276,19 @@ Vamos configurar a Chave de assinatura do Token JWT (Secret), na Classe **JwtSer
 1. Abra a **Classe JwtService**, localizada no pacote **security**
 2. localize a linha indicada na imagem abaixo:
 
-<div align="center"><img src="https://imgur.com/EhNaPnQ.png" title="source: imgur.com" /></div>
+<div align="center"><img src="https://imgur.com/bpmnrSq.png" title="source: imgur.com" /></div>
 
 3. Substitua esta linha pelo trecho de código abaixo:
 
 ```java
-	private static final Dotenv dotenv = Dotenv.load();
-	
-    private static final String SECRET = dotenv.get("API_KEY");
+@Value("${jwt.secret}")
+private String secret;
 ```
 
 4. O resultado da alteração você confere abaixo:
 
-<div align="center"><img src="https://imgur.com/fNKVWXh.png" title="source: imgur.com" /></div>
+<div align="center"><img src="https://imgur.com/5c9LaMN.png" title="source: imgur.com" /></div>
 
-**Linha 21:** A declaração `private static final Dotenv dotenv = Dotenv.load();` cria uma instância da classe `Dotenv` que é responsável por carregar as variáveis de ambiente definidas em um arquivo `.env` localizado na raiz do projeto. 
+**linha 18:** A anotação **`@Value("${jwt.secret}")`** no Spring Boot **injeta o valor da propriedade `jwt.secret`** do `application.properties` ou das variáveis de ambiente diretamente em um **atributo da classe**, permitindo que você use essa configuração no código.
 
-O modificador `static` garante que essa instância seja compartilhada por toda a classe e carregada apenas uma vez quando a classe for inicializada pela JVM. 
-
-O modificador `final` indica que essa referência não poderá ser alterada após a inicialização. O método `load()` lê o arquivo `.env` e armazena todas as variáveis de ambiente em memória para acesso posterior.
-
-**Linha 23:** A declaração `private static final String SECRET = dotenv.get("JWT_SECRET");` utiliza a instância de `Dotenv` criada anteriormente para recuperar o valor da variável de ambiente chamada `JWT_SECRET` que está definida no arquivo `.env`. O método `get("JWT_SECRET")` busca a chave correspondente no arquivo e retorna seu valor como uma String. 
-
-Esta abordagem é uma boa prática de segurança, pois evita expor informações sensíveis (como chaves secretas, senhas ou tokens) diretamente no código-fonte. O valor recuperado é armazenado na constante `SECRET` que será utilizada para assinar e validar os tokens JWT. 
-
-O modificador `static final` garante que esse valor seja carregado uma única vez durante a inicialização da classe e não possa ser modificado posteriormente, mantendo a integridade da chave secreta durante toda a execução da aplicação.
-
-<br />
-
-<h2>👣 Passo 09 - Executar e Testar o Projeto</h2>
-
-
-
-1. Execute e verifique se tudo está funcionando corretamente.
+Execute o o seu projeto e verifique se tudo está funcionando!

@@ -648,11 +648,11 @@ Se o **Deploy no Render não abrir** e/ou aparecer a mensagem **Failed**, como m
   
 - Caso o Deploy exiba a mensagem de concluído com sucesso, entretanto ao tentar abrir no navegador não aparece nada na tela, experimente refazer o Deploy manualmente.
 
-- Caso o mesmo erro persista, recrie o Banco de dados e o Webservice da aplicação, só que desta vez trocando o servidor (**Region**) de hospedagem. O Render possui 5 servidores (Oregon, Ohio, Frankfurt, Virginia e Singapore), como mostra a imagem abaixo:
+- Caso o mesmo erro persista, recrie o Webservice da aplicação, só que desta vez trocando o servidor (**Region**) de hospedagem. O Render possui 5 servidores (Oregon, Ohio, Frankfurt, Virginia e Singapore), como mostra a imagem abaixo:
 
 <div align="center"><img src="https://i.imgur.com/75v6aQq.png" title="source: imgur.com" /></div>
 
-- Apague o Banco de dados e o WebService da aplicação, e na sequência recrie ambos (Passos 08 a 10), desta vez alterando servidor. Dê a preferência para os Servidores Americanos (Oregon, Ohio e Virginia), por serem mais próximos do Brasil. Lembre-se que Singapore (Ásia) e Frankfurt (Europa) estão mais distantes do Brasil.
+- Apague e refaça o WebService da aplicação (Passos 09 e 10), mas desta vez alterando servidor. Dê a preferência para os Servidores Americanos (Oregon, Ohio e Virginia), por serem mais próximos do Brasil. Lembre-se que Singapore (Ásia) e Frankfurt (Europa) estão mais distantes do Brasil.
 
 <br />
 

@@ -21,7 +21,13 @@ Ao final deste laboratório você terá criado um repositório Git local, realiz
 
 ## Tarefa 1 - Criar a estrutura do laboratório
 
-Nesta tarefa vamos criar o ambiente inicial do laboratório.
+Nesta tarefa vamos criar o ambiente inicial do laboratório, como vemos no diagrama abaixo:
+
+```
+📦aula_git
+ ┣ 📂docs
+ ┗ 📂src
+```
 
  1. Crie a pasta principal do laboratório (`aula_git`), dentro da pasta pessoal do usuário (`Home Directory`)
 
@@ -29,41 +35,28 @@ Nesta tarefa vamos criar o ambiente inicial do laboratório.
 mkdir aula_git
 ```
 
-2. Para validar a criação execute:
-
-```bash
-ls
-```
-
-3. Acesse a pasta criada
+2. Acesse a pasta criada
 
 ```bash
 cd aula_git
 ```
 
-4. Para validar execute:
-
-```bash
-pwd
-```
-
-5. Crie a estrutura inicial do projeto
+3. Crie a estrutura inicial do projeto
 
 ```bash
 mkdir src docs
 ```
 
-6. Para validar execute:
+4. Para validar execute:
 
 ```bash
 ls
 ```
 
-7. Resultado esperado:
+5. Resultado esperado:
 
-```text
-docs
-src
+```bash
+docs/  src/
 ```
 
 
@@ -82,9 +75,22 @@ git init
 
 ![](https://i.imgur.com/NnXve9T.png)
 
-> Caso esteja aparecendo **`master`**, significa qe você esqueceu de configurar o nome da branch principal.
+> [!TIP]
 >
-> Verifique o CookBook do Git e faça a alteração.
+> Caso esteja aparecendo **`master`** em vez de **`main`**, provavelmente o nome da branch principal ainda não foi configurado. 
+>
+> 1. Para configurar o nome da branch principal como main, utilize o comando abaixo:
+>
+> ```bash
+> git config --global init.defaultBranch main
+> ```
+>
+> 2. Esta alteração será aplicada nos próximos repositórios que você criar.
+> 3. Para renomear a branch master para main, utilize o comando abaixo:
+>
+> ```bash
+> git branch -m main
+> ```
 
 3. Verifique o status atual do repositório
 
@@ -92,45 +98,83 @@ git init
 git status
 ```
 
-4. Visualize os arquivos ocultos do projeto
+4. Observe que neste momento você não possui arquivos para serem versionados
+
+```bash
+On branch main
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+```
+
+5. Visualize os arquivos ocultos do projeto
 
 ```bash
 ls -la
 ```
 
-Observe a existência da pasta `.git`.
+6. Observe a existência da pasta oculta `.git`:
 
 ```bash
 ./  ../  .git/  docs/  src/
 ```
 
+> [!WARNING]
+>
+> **Não modifique, renomeie ou exclua a pasta `.git`.**
+>
+> Ela contém todas as informações de controle de versão do repositório. Alterações indevidas podem comprometer o funcionamento do Git e causar perda do histórico do projeto.
+
 
 
 ## Tarefa 3 - Criar e versionar arquivos
 
-Nesta tarefa vamos criar os primeiros arquivos do projeto e registrar alterações.
+Nesta tarefa vamos criar os primeiros arquivos do projeto e registrar alterações, como vemos no diagrama abaixo:
+
+```
+📦aula_git
+ ┣ 📂docs
+ ┃ ┗ 📜manual.md
+ ┣ 📂src
+ ┃ ┗ 📜app.js
+ ┗ 📜README.md
+```
 
  1. Crie os arquivos iniciais
 
 ```bash
-touch README.md
-touch src/app.js
-touch docs/manual.md
+touch README.md src/app.js docs/manual.md
 ```
 
 2. Para validar execute:
 
 ```bash
-find .
+find . -not -path '*/.*'
 ```
 
-3. Verifique o status do repositório
+> [!NOTE]
+>
+> A opção `-not -path '*/.*'`, utilizada no comando `find`, exclui da busca arquivos e diretórios ocultos, como a pasta `.git`, exibindo apenas os elementos visíveis da estrutura.
+
+3. Observe que os 3 arquivos foram criados nas respectivas pastas
+
+```bash
+.
+./README.md
+./docs
+./docs/manual.md
+./src
+./src/app.js
+```
+
+4. Verifique o status do repositório
 
 ```bash
 git status
 ```
 
-4. Observe que você tem arquivos para serem versionados
+5. Observe que o Git identificou arquivos que podem ser adicionados à Área de Preparação (Staging Area) para posterior versionamento:
 
 ```bash
 On branch main
@@ -149,19 +193,19 @@ es present (use "git add" to track)
 
 ```
 
-5. Adicione todos os arquivos na área de preparação (Stage Area)
+6. Adicione todos os arquivos na área de preparação (Stage Area)
 
 ```bash
 git add .
 ```
 
-6. Verifique novamente o status
+7. Verifique novamente o status
 
 ```bash
 git status
 ```
 
-7. Observe que os seus arquivos foram adicionados na área de preparação (Stage Area) e estão aguardando o commit:
+8. Observe que os arquivos foram adicionados à **Área de Preparação (Staging Area)** e estão prontos para serem incluídos no próximo commit:
 
 ```bash
 On branch main
@@ -177,7 +221,7 @@ tage)
 
 ```
 
-8. Crie o primeiro commit
+9. Crie o primeiro commit
 
 ```bash
 git commit -m "Meu Primeiro commit"
@@ -187,13 +231,61 @@ git commit -m "Meu Primeiro commit"
 >
 > **-m** indica que você irá adicionar uma mensagem de identificação do commit
 
-9. Consulte o histórico
+<br />
+
+> [!TIP]
+>
+> Caso seja exibida a mensagem abaixo, informando que as credenciais da sua conta no GitHub não foram configuradas:
+>
+> ```bash
+> Author indentity unknown
+> 
+> *** Please tell me who you are.
+> 
+> Run
+> 
+> 	git config --global user.email "you@example.com"
+> 	git config --global user.name "Your Name"
+> 
+> to set your account's default identity.
+> Omit --global to set the identity only in this repository.
+> 
+> fatal: unable to auto-detect email address (got 'rafae@DESKTOP-5GMTGK4.(none)')
+> ```
+>
+> 1. Configure o seu **nome** no Git, através do comando:
+>
+> ```bash
+> git config --global user.name "seu_mome"
+> ```
+>
+> > *Substitua seu_nome, pelo seu nome completo. Exemplo: João da Silva*
+>
+> 2. Configure o seu **e-mail** no Git, através do comando:
+>
+> ```
+> git config --global user.email "seu_email@email.com"
+> ```
+>
+> > *Substitua seu_email, pelo endereço do e-mail que você utilizou para criar a sua conta no Github. Exemplo: **joao@email.com.br***
+>
+> 3. Para checar se as configurações foram efetuadas com sucesso, digite o comando:
+>
+> ```
+> git config --list 
+> ```
+>
+> > 💡 Para sair da listagem do comando, caso seja necessário, pressione a letra **q** do seu teclado.
+>
+> 4. Na sequência, refaça o commit!
+
+10. Consulte o histórico
 
 ```bash
 git log
 ```
 
-10. Observe que o commit foi criado:
+11. Observe que o primeiro commit foi criado:
 
 ```bash
 commit cc0aac5ea06bf70feec3cd15858aac9621
@@ -208,41 +300,11 @@ Date:   Wed Jun 10 02:35:11 2026 -0300
 
 
 
-## Tarefa 4 - Consultar histórico
+## Tarefa 4 - Trabalhar com alterações
 
-Nesta tarefa vamos consultar os commits realizados.
+Nesta tarefa vamos modificar um arquivo e acompanhar as alterações realizadas.
 
- 1. Liste o histórico completo
-
-```bash
-git log
-```
-
- 2. Liste o histórico resumido
-
-```bash
-git log --oneline
-```
-
- 3. Exiba o histórico em formato gráfico
-
-```bash
-git log --oneline --graph
-```
-
- 4. Exiba o histórico com informações adicionais
-
-```bash
-git log --oneline --decorate
-```
-
-
-
-## Tarefa 5 - Trabalhar com alterações
-
-Nesta tarefa vamos modificar arquivos e acompanhar as alterações realizadas.
-
- 1. Adicione conteúdo ao README.md
+ 1. Adicione conteúdo no arquivo README.md
 
 ```bash
 echo "# Projeto Git" > README.md
@@ -260,7 +322,7 @@ cat README.md
 git status
 ```
 
-4. Observe que você tem arquivos atualizados para serem versionados
+4. Observe que o Git identificou arquivos atualizados que podem ser adicionados à Área de Preparação (Staging Area) para posterior versionamento:
 
 ```bash
 On branch main
@@ -297,7 +359,7 @@ index e69de29..777c2ce 100644
 
 ```
 
-7. Adicione a alteração à área de preparação
+7. Adicione o arquivo à área de preparação
 
 ```bash
 git add README.md
@@ -309,7 +371,7 @@ git add README.md
 git status
 ```
 
-9. Observe que as alterações foram adicionadas na área de preparação:
+9. Observe que todos os arquivos foram adicionadas na área de preparação:
 
 ```bash
 On branch main
@@ -322,13 +384,13 @@ o unstage)
 
 > [!IMPORTANT]
 >
-> Desta vez não faremos o commit para entender como desfazer as alterações que ainda não foram adicionadas na área de preparação
+> Desta vez não criaremos um commit. Antes disso, vamos entender como desfazer alterações que ainda não foram registradas no histórico do repositório.
 
 
 
-## Tarefa 6 - Desfazer alterações com restore
+## Tarefa 5 - Desfazer alterações com restore
 
-Nesta tarefa vamos praticar formas seguras de desfazer alterações locais.
+Nesta tarefa vamos praticar formas seguras de desfazer alterações locais antes que elas sejam registradas em um commit.
 
  1. Adicione uma nova linha ao README.md
 
@@ -346,8 +408,7 @@ cat README.md
 
 ```bash
 # Projeto Git
-Linha temporária
-
+## Linha temporária
 ```
 
 4. Verifique o status do repositório
@@ -356,7 +417,9 @@ Linha temporária
 git status
 ```
 
-5. Observe que agora temos a primeira alteração na área de preparação e a segunda alteração esperando para ser adicionada:
+5. Observe que o arquivo possui duas alterações em estados diferentes: 
+   - A primeira, já foi adicionada à **Área de Preparação (Staging Area)**
+   - A segunda continua apenas no diretório de trabalho aguardando ser adicionada na **Área de Preparação (Staging Area)**.
 
 ```bash
 On branch main
@@ -374,7 +437,7 @@ Changes not staged for commit:
 
 ```
 
-6. Desfaça as alterações realizadas no arquivo
+6. Descarte as alterações efetuadas no arquivo README.md, que ainda não foram adicionadas à Área de Preparação (Staging Area).
 
 ```bash
 git restore README.md
@@ -386,71 +449,131 @@ git restore README.md
 cat README.md
 ```
 
-> [!NOTE]
->
-> A segunda linha adicionada no arquivo **README.md** será apagada e o arquivo voltará a ter apenas uma linha
+8. Observe que o comando restaurou o arquivo para o estado presente na Área de Preparação.
 
-<br />
+```bash
+# Projeto Git
+```
 
 > [!TIP]
 >
 > O comando `git restore` descarta alterações que ainda não foram adicionadas à área de preparação.
 
-<br />
-
-8. Adicione uma nova alteração ao README.md
-
-```bash
-echo "Nova alteração" >> README.md
-```
-
-9. Adicione o arquivo à área de preparação
-
-```bash
-git add README.md
-```
-
-10. Verifique o status do repositório
+9. Verifique o status do repositório
 
 ```bash
 git status
 ```
 
-11. Remova o arquivo da área de preparação
+10. Observe que a primeira alteração foi mantida na **Área de Preparação (Staging Area)**, enquanto a segunda alteração, que ainda não havia sido adicionada à área de preparação, foi descartada.
+
+```bash
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." t
+o unstage)
+        modified:   README.md
+
+```
+
+11. Adicione uma nova alteração no arquivo README.md
+
+```bash
+echo "## Funcionalidades do Projeto" >> README.md
+```
+
+12. Adicione novamente o arquivo à **Área de Preparação (Staging Area)**
+
+```bash
+git add README.md
+```
+
+13. Remova o arquivo da **Área de Preparação (Staging Area)**, mantendo as alterações realizadas no arquivo.
 
 ```bash
 git restore --staged README.md
 ```
 
-12. Para validar execute:
+14. Para validar execute:
 
 ```bash
 git status
 ```
 
-> [!NOTE]
+15. Observe que o arquivo foi removido da **Área de Preparação (Staging Area)**, porém as alterações continuam disponíveis e podem ser adicionadas novamente quando necessário.
+
+```bash
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be
+committed)
+  (use "git restore <file>..." to discard changes
+in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "
+git commit -a")
+```
+
+
+
+## Tarefa 6 - Alterar múltiplos arquivos
+
+Nesta tarefa vamos modificar vários arquivos e acompanhar as alterações realizadas.
+
+1. Adicione uma alteração no arquivo manual.md
+
+```bash
+echo "# Manual do Projeto Git" > docs/manual.md
+```
+
+2. Adicione uma alteração no arquivo app.js
+
+```bash
+echo "console.log('Hello World')" > src/app.js
+```
+
+3. Adicione os arquivos à área de preparação
+
+```bash
+git add .
+```
+> [!TIP]
 >
-> O comando remove o arquivo da área de preparação, mas mantém as alterações no arquivo.
+> Ao utilizar o ponto no final do comando `git add`, você está informando que todos os arquivos criados, atualizados ou removidos do repositório (incluindo as subpastas) devem ser adicionados na área de preparação.
+> 
 
-13. Adicione novamente o arquivo à área de preparação
-
-```bash
-git add README.md
-```
-
-14. Crie um commit
+4. Verifique o status do repositório
 
 ```bash
-git commit -m "Atualização - README"
+git status
 ```
 
- 10. Consulte o histórico
+5. Observe que as alterações realizadas nos três arquivos foram adicionadas à **Área de Preparação (Staging Area)** e estão prontas para serem incluídas no próximo commit.
+
+```bash
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage
+)
+        modified:   README.md
+        modified:   docs/manual.md
+        modified:   src/app.js
+```
+
+6. Faça o commit
+
+```bash
+git commit -m "Atualização dos arquivos: README.md manual.md e app.js"
+```
+
+7. Consulte o histórico
 
 ```bash
 git log
 ```
 
-11. Observe que agora você possui 2 commits:
+8. Observe que agora você possui 2 commits:
 
 ```bash
 commit 40fd49b905d33c6bc7e0349dd5ea06f1ed
@@ -459,7 +582,8 @@ Author: Rafael Queiroz <rafaelproinfo@gma
 il.com>
 Date:   Wed Jun 10 02:53:02 2026 -0300
 
-    Atualização - README
+     Atualização dos arquivos: README.md manual.md
+e app.js
 
 commit cc0aac5ea06bf70feec3cd15858aac9621
 4e6280
@@ -480,52 +604,28 @@ Nesta tarefa vamos conhecer formas de desfazer commits locais.
   1. Adicione conteúdo no arquivo manual.md, localizado na pasta docs
 
 ```bash
-echo "Manual do Git" > docs/manual.md
+echo "## Introdução" >> docs/manual.md
 ```
 
-2. Para validar execute:
-
-```bash
- cat docs/manual.md
-```
-
-3. Verifique o status do repositório
-
-```bash
-git status
-```
-
-4. Observe que você tem arquivos atualizados para serem versionados
-5. Adicione a alteração à área de preparação
+2. Adicione a alteração à área de preparação
 
 ```bash
 git add .
 ```
 
-> [!TIP]
->
-> Ao utilizar o ponto no final do comando `git add`, você está informando que todos os arquivos criados ou atualizados dentro do repositório devem ser adicionados na área de preparação.
-
-6. Verifique o status do repositório
+3. Faça o commit 
 
 ```bash
-git status
+git commit -m "Atualização do arquivo manual.md"
 ```
 
-7. Observe que o arquivo **manual.md** foi adicionado na área de preparação (Stage Area) e está aguardando o commit.
-8. Faça o commit 
-
-```bash
-git commit -m "Atualização - manual.md"
-```
-
-9. Consulte o histórico
+4. Consulte o histórico
 
 ```bash
 git log
 ```
 
-10. Observe que agora você possui 3 commits:
+5. Observe que agora você possui 3 commits:
 
 ```bash
 commit b2cfc8e9aa247e1729f520ef0b20945467
@@ -537,12 +637,13 @@ Date:   Wed Jun 10 03:03:50 2026 -0300
     Atualização - manual.md
 
 commit 40fd49b905d33c6bc7e0349dd5ea06f1ed
-5b6881
+5b6881 
 Author: Rafael Queiroz <rafaelproinfo@gma
 il.com>
 Date:   Wed Jun 10 02:53:02 2026 -0300
 
-    Atualização - README
+     Atualização dos arquivos: README.md manual.md
+e app.js
 
 commit cc0aac5ea06bf70feec3cd15858aac9621
 4e6280
@@ -550,38 +651,65 @@ Author: Rafael Queiroz <rafaelproinfo@gma
 il.com>
 Date:   Wed Jun 10 02:35:11 2026 -0300
 
+    Meu Primeiro commit
 ```
 
 > [!TIP]
 >
-> Para sair do `git log`, pressione a tecla **q** do seu teclado
+> O comando `git log` abre um visualizador interativo. Caso você não consiga retornar ao terminal após executar o comando, pressione a tecla **q** para sair da visualização.
 
 
 
 ### 7.1. Desfazer um commit no modo Soft
 
+Nesta etapa vamos aprender como desfazer um commit sem perder o trabalho realizado.
 
-
-11. Desfaça o último commit mantendo as alterações preparadas
+1. Desfaça o último commit mantendo todas as alterações na **Área de Preparação (Staging Area)**
 
 ```bash
 git reset --soft HEAD~1
 ```
 
-12. Para validar execute:
+> [!TIP]
+>
+> A flag `HEAD` representa o commit atual, ou seja, o ponto em que o repositório se encontra no momento.
+>
+> A notação `~` permite navegar pelos commits anteriores:
+>
+> - `HEAD~1` → commit imediatamente anterior ao atual.
+> - `HEAD~2` → dois commits antes do atual.
+> - `HEAD~3` → três commits antes do atual.
+> - `HEAD~4` → quatro commits antes do atual.
+
+<br />
+
+> [!WARNING]
+>
+> Na maioria dos cenários do dia a dia, **o mais adequado é utilizar `HEAD~1`, revertendo apenas o último commit**. A reversão de múltiplos commits deve ser realizada com cautela, pois pode impactar diversas alterações e dificultar a reorganização do histórico.
+
+2. Para validar execute:
 
 ```bash
 git status
 ```
 
-13. Observe que o arquivo **manual.md** voltou para a área de preparação (Stage Area) e está aguardando o commit novamente.
-14. Consulte o histórico
+3. Observe que o arquivo **manual.md** foi adicionado novamente à **Área de Preparação (Staging Area)** e está pronto para ser incluído no próximo commit.
+
+```bash
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage
+)
+        modified:   docs/manual.md
+```
+
+4. Consulte o histórico
 
 ```bash
 git log
 ```
 
-15. Observe que o repositório voltou a ter apenas 2 commits:
+5. Observe que o repositório voltou a ter apenas 2 commits:
 
 ```bash
 commit 40fd49b905d33c6bc7e0349dd5ea06f1ed
@@ -590,7 +718,8 @@ Author: Rafael Queiroz <rafaelproinfo@gma
 il.com>
 Date:   Wed Jun 10 02:53:02 2026 -0300
 
-    Atualização - README
+    Atualização dos arquivos: README.md manual.md
+e app.js
 
 commit cc0aac5ea06bf70feec3cd15858aac9621
 4e6280
@@ -606,27 +735,27 @@ Date:   Wed Jun 10 02:35:11 2026 -0300
 
 ### 7.2. Desfazer um commit removendo da Stage Area
 
+Nesta etapa vamos aprender como desfazer um commit e retornar as alterações para o diretório de trabalho, permitindo que elas sejam revisadas antes de um novo commit.
 
-
-16. Crie novamente o commit
+1. Refaça o commit anterior
 
 ```bash
-git commit -m "Atualização - manual.md"
+git commit -m "Atualização do arquivo manual.md"
 ```
 
-17. Desfaça o último commit removendo-o da área de preparação
+2. Desfaça o último commit removendo-o da **Área de Preparação (Staging Area)**
 
 ```bash
 git reset HEAD~1
 ```
 
-18. Para validar execute:
+3. Para validar execute:
 
 ```bash
 git status
 ```
 
-19. Observe que além de desfazer o commit, o arquivo saiu da área de preparação:
+4. Observe que, além de desfazer o commit, o arquivo foi removido da **Área de Preparação (Staging Area)**. As alterações foram preservadas no diretório de trabalho e poderão ser adicionadas novamente antes da criação de um novo commit.
 
 ```bash
 On branch main
@@ -645,42 +774,204 @@ no changes added to commit (use "git add"
 
 ### 7.3. Desfazer um commit no modo Hard
 
+Nesta etapa vamos aprender como desfazer um commit e descartar completamente as alterações realizadas, retornando o repositório ao estado em que se encontrava antes do commit.
 
-
-20. Adicione e Crie novamente o commit
+1. Adicione e Crie novamente o commit
 
 ```bash
-git commit -a -m "Atualização - manual.md"
+git commit -a -m "Atualização do arquivo manual.md"
 ```
 
 > [!NOTE]
 >
-> A opção **-a** incorpora o `git add` ao comando `git commit`. Esta opção aplica-se apenas a arquivos já rastreados pelo Git (arquivos existentes), não funcionando para novos arquivos.
+> A opção **-a** incorpora o `git add` ao comando `git commit`. Esta opção **aplica-se apenas a arquivos já rastreados pelo Git (arquivos existentes), não funcionando para novos arquivos**.
 
-21. Desfaça o último commit desfazendo todas as alterações
+2. Desfaça o último commit e descarte todas as alterações realizadas.
 
 ```bash
 git reset --hard HEAD~1
 ```
 
-22. Para validar execute:
+3. Para validar execute:
 
 ```bash
 git status
 ```
 
-23. Observe que, além de remover o commit do histórico, todas as alterações foram descartadas, restaurando o repositório exatamente ao estado do segundo commit.
-24. Para validar, execute o comando:
+4. Observe que, além de remover o commit do histórico, todas as alterações realizadas foram descartadas. Com isso, o repositório retornou exatamente ao estado em que se encontrava após o segundo commit.
+
+```bash
+On branch main
+nothing to commit, working tree clean
+```
+
+5. Para validar, execute o comando:
 
 ```bash
  cat docs/manual.md
 ```
 
-25. Observe que o arquivo **manual.md** está vazio!
+6. Observe que o arquivo **manual.md** está com apenas uma linha
+
+```bash
+# Manual do Projeto Git
+```
 
 > [!WARNING]
 >
 > Evite utilizar `git reset` em commits que já foram enviados para repositórios compartilhados.
+
+
+
+### 7.4. Desfazer um commit e registrar a reversão no histórico
+
+Nesta etapa vamos aprender como desfazer os efeitos de um commit sem alterar o histórico do repositório. Para isso, utilizaremos o comando `git revert`, que cria um novo commit responsável por reverter as alterações realizadas anteriormente, mantendo um histórico completo e rastreável.
+
+1. Adicione conteúdo no arquivo manual.md, localizado na pasta docs
+
+```bash
+echo "Laboratório Prático com os principais comandos do Git." >> README.md
+```
+
+2. Adicione a alteração à área de preparação
+
+```bash
+git add .
+```
+
+3. Faça o commit 
+
+```bash
+git commit -m "Nova atualização do arquivo README.md"
+```
+
+4. Desfaça o último commit e registre no histórico.
+
+```bash
+git revert HEAD
+```
+
+> [!TIP]
+>
+> Diferentemente do comando `git reset`, o comando `git revert` normalmente é utilizado apenas com `HEAD`, pois seu objetivo é desfazer o último commit por meio da criação de um novo commit de reversão.
+>
+> ```bash
+> git revert HEAD
+> ```
+>
+> A utilização da notação `~` é opcional e serve para indicar commits anteriores:
+>
+> - `HEAD` → último commit.
+> - `HEAD~1` → penúltimo commit.
+> - `HEAD~2` → antepenúltimo commit.
+>
+> Na maioria dos cenários, utiliza-se `git revert HEAD`, pois o objetivo geralmente é desfazer apenas o último commit sem alterar o histórico do repositório.
+
+5. Será aberta uma janela do **Visual Studio Code** ou do editor padrão configurado no Git contendo a mensagem do commit de reversão. Revise a mensagem, salve o arquivo e feche o editor para concluir a operação.
+
+```bash
+Revert "Nova atualização do arquivo README.md"
+
+This reverts commit f32edf69366235fc83ada4a2303a4369d57ad12e.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Changes to be committed:
+#	modified:   README.md
+#
+```
+
+> [!IMPORTANT]
+>
+> Enquanto a janela do do **Visual Studio Code** ou do editor padrão do Git não for fechada, o terminal ficará bloqueado aguardando a conclusão do commit de revrsão.
+
+6. Para validar execute:
+
+```bash
+git status
+```
+
+7. Observe que o commit original foi mantido no histórico e um novo commit foi criado para registrar a reversão das alterações realizadas anteriormente.
+
+```bash
+On branch main
+nothing to commit, working tree clean
+```
+
+8. Para validar, execute o comando:
+
+```bash
+ cat README.md
+```
+
+9. Observe que o arquivo **manual.md** está com apenas duas linhas
+
+```bash
+# Projeto Git
+## Funcionalidades do Projeto
+```
+
+10. Consulte o histórico
+
+```bash
+git log
+```
+
+11. Observe que, diferentemente do git reset, o commit original foi mantido no histórico. Note que foi criado um novo commit que registra a reversão das alterações realizadas no terceiro commit.
+
+```bash
+commit 8a2fb1209d84596ae3af44083bc89e03c79f6eca (H
+EAD -> main)
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 01:40:54 2026 -0300
+
+    Revert "Nova atualização do arquivo README.md"
+
+    This reverts commit f32edf69366235fc83ada4a230
+3a4369d57ad12e.
+
+commit f32edf69366235fc83ada4a2303a4369d57ad12e
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 01:34:32 2026 -0300
+
+    Nova atualização do arquivo README.md
+
+commit 8cc32bdba85d8319105fad43ad443f7741faac1d
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 00:57:54 2026 -0300
+
+    Atualização dos arquivos: README.md manual.md
+e app.js
+
+commit 1a339aa485e68cf4b447389cbe31dcd886d00dc1
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Thu Jun 11 16:03:56 2026 -0300
+
+    Meu Primeiro commit
+```
+
+> [!NOTE]
+>
+> ### Quando usar cada um?
+>
+> **Use `git revert` quando:**
+>
+> - O commit já foi enviado para o GitHub (`git push`).
+> - Outras pessoas podem ter baixado o commit.
+> - Você deseja preservar o histórico completo.
+>
+> **Use `git reset` quando:**
+>
+> - O commit ainda está apenas no seu repositório local.
+> - Você deseja reescrever o histórico.
+> - Está corrigindo erros antes de enviar para o GitHub.
+>
+> **Boa Prática**
+>
+> - Antes do **`git push`**, normalmente utiliza-se **`git reset`**. 
+> - Após o **`git push`**, normalmente utiliza-se **`git revert`**.
 
 
 
@@ -694,59 +985,102 @@ Nesta tarefa vamos criar e utilizar branches.
 git branch
 ```
 
- 2. Crie uma branch chamada desenvolvimento
+ 2. Observe que o repositório possui apenas a branch **main**
 
 ```bash
-git branch desenvolvimento
+* main
 ```
 
- 3. Liste novamente as branches
+3. Crie uma branch chamada **nova_feature**
 
 ```bash
-git branch
+git checkout -b nova_feature
 ```
 
- 4. Acesse a branch desenvolvimento
+> [!TIP]
+>
+> O comando `git checkout -b` cria uma nova branch e, em seguida, realiza automaticamente a troca para ela, tornando-a a branch ativa do repositório.
 
-```bash
-git checkout desenvolvimento
-```
+4. Observe no prompt que a branch atual foi alterada para **nova_feature**
 
- 5. Verifique a branch atual
+![](https://i.imgur.com/SOOdLvw.png)
 
-```bash
-git branch
-```
-
- 6. Crie um novo arquivo
+5. Crie um novo arquivo dentro da branch **nova_feature**
 
 ```bash
 touch src/config.js
 ```
 
-7. Para validar execute:
+6. Adicione o conteúdo abaixo no arquivo config.js
 
 ```bash
-ls src
+echo "const PORT=8080" > src/config.js
 ```
 
-8. Adicione as alterações
+7. Adicione as alterações
 
 ```bash
 git add .
 ```
 
-9. Crie um commit
+8. Crie um commit
 
 ```bash
-git commit -m "Adiciona config.js"
+git commit -m "Construção do arquivo config.js"
+```
+
+9. Consulte o histórico
+
+```bash
+git log
+```
+
+10. Observe que as alterações foram realizadas apenas na branch **nova_feature**. A branch **main** permanece inalterada, apontando para o commit anterior e sem acesso às novas modificações.
+
+```bash
+commit 8141c1d3a4c74a9324d74e62057e12d533ad16a7 (H
+EAD -> nova_feature)
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 02:07:05 2026 -0300
+
+    Construção do arquivo config.js
+
+commit 8a2fb1209d84596ae3af44083bc89e03c79f6eca (m
+ain)
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 01:40:54 2026 -0300
+
+    Revert "Nova atualização do arquivo README.md"
+
+    This reverts commit f32edf69366235fc83ada4a230
+3a4369d57ad12e.
+
+commit f32edf69366235fc83ada4a2303a4369d57ad12e
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 01:34:32 2026 -0300
+
+    Nova atualização do arquivo README.md
+
+commit 8cc32bdba85d8319105fad43ad443f7741faac1d
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 00:57:54 2026 -0300
+
+    Atualização dos arquivos: README.md manual.md
+e app.js
+
+commit 1a339aa485e68cf4b447389cbe31dcd886d00dc1
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Thu Jun 11 16:03:56 2026 -0300
+
+    Meu Primeiro commit
+
 ```
 
 
 
 ## Tarefa 9 - Realizar merge
 
-Nesta tarefa vamos unir alterações entre branches.
+Nesta tarefa vamos integrar as alterações realizadas em uma branch à branch principal por meio de uma operação de merge.
 
  1. Retorne para a branch principal
 
@@ -754,30 +1088,80 @@ Nesta tarefa vamos unir alterações entre branches.
 git checkout main
 ```
 
-> [!NOTE]
->
-> Caso sua branch principal seja `master`, utilize:
->
-> ```bash
-> git checkout master
-> ```
-
- 2. Realize o merge da branch desenvolvimento
+ 2. Liste o conteúdo da pasta src
 
 ```bash
-git merge desenvolvimento
+ls src
 ```
 
- 3. Consulte o histórico em formato gráfico
+3. Observe que na branch main não existe o arquivo `config.js`
 
 ```bash
-git log --oneline --graph
+app.js
 ```
 
- 4. Verifique os arquivos do projeto
+4. Realize o merge da branch main com a branch **nova_feature**
 
 ```bash
-find .
+git merge nova_feature
+```
+
+5. Consulte o histórico
+
+```bash
+git log
+```
+
+6. Observe que, após o merge, as branches **main** e **nova_feature** passaram a apontar para o mesmo commit, indicando que as alterações realizadas na branch **nova_feature** foram incorporadas à branch **main**.
+
+```bash
+commit 8141c1d3a4c74a9324d74e62057e12d533ad16a7 (H
+EAD ->  main, nova_feature)
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 02:07:05 2026 -0300
+
+    Construção do arquivo config.js
+
+commit 8a2fb1209d84596ae3af44083bc89e03c79f6eca 
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 01:40:54 2026 -0300
+
+    Revert "Nova atualização do arquivo README.md"
+
+    This reverts commit f32edf69366235fc83ada4a230
+3a4369d57ad12e.
+
+commit f32edf69366235fc83ada4a2303a4369d57ad12e
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 01:34:32 2026 -0300
+
+    Nova atualização do arquivo README.md
+
+commit 8cc32bdba85d8319105fad43ad443f7741faac1d
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 00:57:54 2026 -0300
+
+    Atualização dos arquivos: README.md manual.md
+e app.js
+
+commit 1a339aa485e68cf4b447389cbe31dcd886d00dc1
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Thu Jun 11 16:03:56 2026 -0300
+
+    Meu Primeiro commit
+
+```
+
+7. Liste o conteúdo da pasta src
+
+```bash
+ls src
+```
+
+8. Note que o arquivo `config.js` foi criado na branch main
+
+```bash
+app.js  config.js
 ```
 
 
@@ -786,18 +1170,35 @@ find .
 
 Nesta tarefa vamos conectar o projeto ao GitHub.
 
- 1. Crie um repositório vazio no GitHub chamado **aula_git**. Não marque nenhuma opção de inicialização.
+  1. Crie um repositório vazio e público na sua conta do GitHub chamado **aula_git**.
 
- 2. Adicione o repositório remoto. Substitua a URL abaixo pela URL do seu repositório.
+![](https://i.imgur.com/hT7zzN6.png)
+
+2. Copie o endereço **https** do repositório remoto
+
+![](https://i.imgur.com/xFx4dYc.png)
+
+3. Conecte o repositório local com o repositório remoto. 
 
 ```bash
-git remote add origin https://github.com/usuario/repositorio.git
+git remote add origin https://github.com/rafaelq80/aula_git.git
 ```
 
- 3. Verifique os repositórios remotos configurados
+> Substitua a URL **https://github.com/rafaelq80/aula_git.git** pela URL copiada do seu repositório no GitHub.
+
+4. Verifique os repositórios remotos configurados
 
 ```bash
 git remote -v
+```
+
+5. O resultado será:
+
+```bash
+origin  https://github.com/rafaelq80/aula_git.git
+(fetch)
+origin  https://github.com/rafaelq80/aula_git.git
+(push)
 ```
 
 
@@ -814,14 +1215,73 @@ git push origin main
 
 > [!NOTE]
 >
-> Caso utilize a branch `master`, substitua `main` por `master`.
+> Observe que será enviado apenas o conteúdo da branch **main**. Para enviar a branch **nova_feature**, execute o comando:
+>
+> ```bash
+> git push origin nova_feature
+> ```
 
- 2. Consulte o repositório no GitHub. Verifique se os arquivos foram enviados corretamente.
+<br />
 
- 3. Consulte o histórico local
+> [!TIP]
+>
+> Caso o Git ainda não esteja autenticado no GitHub, uma janela de login poderá ser exibida durante a execução do comando `git push`. 
+>
+> ![](https://i.imgur.com/vsRTAyD.png)
+>
+> 1. Clique no botão **Sign in with your browser** 
+> 2. Você será redirecionado para o navegador 
+> 3. Informe suas credenciais (usuário e senha) 
+> 4. Autorize a conexão da sua máquina com o GitHub
+> 5. Após concluir o processo de autenticação e autorizar o acesso ao repositório, volte para o terminal e refaça push.
+
+  2. Volte no repositório no GitHub, atualize a página e verifique se os arquivos foram enviados corretamente.
+
+![](https://i.imgur.com/2uu3EaI.png)
+
+3. Consulte o histórico
 
 ```bash
-git log --oneline
+git log
+```
+
+4. Observe que ambos os repositórios estão apontando para o mesmo commit
+
+```bash
+commit 8141c1d3a4c74a9324d74e62057e12d533ad16a7 (H
+EAD ->  main,  origin/main, nova_feature)
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 02:07:05 2026 -0300
+
+    Construção do arquivo config.js
+
+commit 8a2fb1209d84596ae3af44083bc89e03c79f6eca 
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 01:40:54 2026 -0300
+
+    Revert "Nova atualização do arquivo README.md"
+
+    This reverts commit f32edf69366235fc83ada4a230
+3a4369d57ad12e.
+
+commit f32edf69366235fc83ada4a2303a4369d57ad12e
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 01:34:32 2026 -0300
+
+    Nova atualização do arquivo README.md
+
+commit 8cc32bdba85d8319105fad43ad443f7741faac1d
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 00:57:54 2026 -0300
+
+    Atualização dos arquivos: README.md manual.md
+e app.js
+
+commit 1a339aa485e68cf4b447389cbe31dcd886d00dc1
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Thu Jun 11 16:03:56 2026 -0300
+
+    Meu Primeiro commit
 ```
 
 
@@ -830,29 +1290,118 @@ git log --oneline
 
 Nesta tarefa vamos obter alterações realizadas no GitHub.
 
- 1. Realize uma alteração diretamente no GitHub. Edite o arquivo README.md pela interface web.
+  1. No repositório remoto, edite o arquivo README.md clicando no lápis
 
- 2. Atualize o repositório local
+![](https://i.imgur.com/IWvE1Zr.png)
+
+2. Adicione uma nova linha no arquivo
+
+![](https://i.imgur.com/TdzYaRh.png)
+
+3. Faça o commit
+
+![](https://i.imgur.com/dd1D9TZ.png)
+
+4. Observe que o arquivo README foi alterado
+
+![](https://i.imgur.com/CKmoI01.png)
+
+5. Para baixa as atualizações do repositório remoto sem aplicá-las localmente, execute o comando abaixo:
 
 ```bash
-git pull
+git fetch
 ```
 
- 3. Consulte o histórico
+6. Para visualizar as alterações, utilize o comando abaixo
 
 ```bash
-git log --oneline
+git diff main origin/main
 ```
 
- 4. Visualize o conteúdo atualizado
+7. Observe que foi adicionada uma nova linha no arquivo README.md (`+## Requisitos do Projeto`):
+
+```bash
+diff --git a/README.md b/README.md
+index 0a988cc..f39827d 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,3 @@
+ # Projeto Git
+ ## Funcionalidades do Projeto
++## Requisitos do Projeto
+```
+
+8. Atualize o repositório local
+
+```bash
+git pull origin main
+```
+
+9. Consulte o histórico
+
+```bash
+git log
+```
+
+10. Observe que o novo commit criado no repositório remoto foi sincronizado com o repositório local, passando a fazer parte do histórico do projeto local.
+
+```bash
+commit 3a7391813918893e65fa69e3176acabac09db14c (H
+EAD -> main, origin/main)
+Author: Rafael Queiróz <60499241+rafaelq80@users.n
+oreply.github.com>
+Date:   Fri Jun 12 02:45:38 2026 -0300
+
+    Atualização remota do README
+
+commit 8141c1d3a4c74a9324d74e62057e12d533ad16a7 (nova_feature)
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 02:07:05 2026 -0300
+
+    Construção do arquivo config.js
+
+commit 8a2fb1209d84596ae3af44083bc89e03c79f6eca 
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 01:40:54 2026 -0300
+
+    Revert "Nova atualização do arquivo README.md"
+
+    This reverts commit f32edf69366235fc83ada4a230
+3a4369d57ad12e.
+
+commit f32edf69366235fc83ada4a2303a4369d57ad12e
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 01:34:32 2026 -0300
+
+    Nova atualização do arquivo README.md
+
+commit 8cc32bdba85d8319105fad43ad443f7741faac1d
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Fri Jun 12 00:57:54 2026 -0300
+
+    Atualização dos arquivos: README.md manual.md
+e app.js
+
+commit 1a339aa485e68cf4b447389cbe31dcd886d00dc1
+Author: Rafael Queiroz <rafaelproinfo@gmail.com>
+Date:   Thu Jun 11 16:03:56 2026 -0300
+
+    Meu Primeiro commit
+```
+
+11. Visualize o conteúdo atualizado
 
 ```bash
 cat README.md
 ```
 
-> [!NOTE]
->
-> O comando `git pull` executa internamente um `git fetch` seguido de um `git merge`.
+12. Observe que o conteúdo do arquivo README.md foi atualizado
+
+```bash
+# Projeto Git
+## Funcionalidades do Projeto
+## Requisitos do Projeto
+```
 
 
 
@@ -893,55 +1442,9 @@ git status
 6. abra a página **index.html** no navegador (somente Windows):
 
 ```bash
-explorer index.html
+start index.html
 ```
 
 7. Você verá no seu navegador o site abaixo:
 
 ![](https://i.imgur.com/lcBqr86.png)
-
-
-
-## Desafio Final
-
-Nesta atividade você deverá criar um novo projeto aplicando os conceitos aprendidos.
-
- 1. Crie uma pasta chamada projeto_final, na pasta do usuário
-
- 2. Inicialize um repositório Git
-
- 3. Crie os diretórios
-
-```text
-src
-docs
-tests
-```
-
- 4. Crie os arquivos
-
-```text
-README.md
-src/app.js
-docs/manual.md
-tests/app.test.js
-```
-
- 5. Realize o primeiro commit
-
- 6. Crie uma branch chamada feature-login
-
- 7. Adicione um arquivo chamado login.js
-
- 8. Realize um commit na branch feature-login
-
- 9. Faça merge da branch feature-login na branch principal
-
- 10. Envie o projeto para um repositório GitHub
-
- 11. Consulte o histórico em formato gráfico
-
-
-
-
-

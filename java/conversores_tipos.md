@@ -266,6 +266,26 @@ Usuário ativo? true
 
 <br />
 
+> [!IMPORTANT]
+>
+> **Separador Decimal**
+>
+> Os métodos `Double.parseDouble()` e `Float.parseFloat()` seguem o padrão internacional de representação numérica e aceitam apenas o ponto (`.`) como separador decimal. 
+>
+> Em países como o Brasil, é comum que valores sejam digitados utilizando vírgula (`,`), como `"1500,50"`. Nesses casos, a conversão gerará uma exceção do tipo `NumberFormatException`. Para evitar esse problema, substitua a vírgula por ponto antes de realizar a conversão, através do método da Classe String `replace()`:
+>
+> ```java
+> String valorTexto = "1500,50";
+> 
+> double valor = Double.parseDouble(
+>     valorTexto.replace(",", ".")
+> );
+> ```
+>
+> Essa prática é especialmente útil ao processar dados provenientes de formulários, planilhas, arquivos CSV ou entradas fornecidas pelo usuário. 
+
+<br />
+
 ## 4. Conversão de Números para String
 
 

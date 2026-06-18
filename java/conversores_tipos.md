@@ -437,13 +437,12 @@ Em Java, o tipo `char` utiliza o padrão **Unicode**, que é uma evolução do A
 
 Embora o Java utilize Unicode, os primeiros 128 caracteres da tabela Unicode correspondem exatamente aos caracteres definidos pela tabela ASCII, garantindo compatibilidade com sistemas mais antigos.
 
+<br />
+🔗 [Tabela de Caracteres ASCII](https://github.com/rafaelq80/aulas_generation/blob/main/java/tabela_ascii.md)
 
+🔗 [Tabela de Carcateres Unicode](https://symbl.cc/pt/unicode-table/)
 
-
-
-[Tabela de Carcateres Unicode](https://symbl.cc/pt/unicode-table/)
-
-
+<br />
 
 ### char para int
 

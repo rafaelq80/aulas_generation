@@ -149,11 +149,11 @@
 
 1. Com a Collection aberta, clique na opção **Base Environment**.
 
-<div align="center"><img src="https://i.imgur.com/LsNpFI5.png" title="source: imgur.com" /></div>
+<div align="center"><img src="https://i.imgur.com/2q4kGwi.png" title="source: imgur.com" /></div>
 
 2. No menu que será aberto, no item **Collection Environments**, clique no lápis para criar ou editar variáveis de ambiente do Insomnia
 
-<div align="center"><img src="https://i.imgur.com/msyQcMm.png" title="source: imgur.com" /></div>
+<div align="center"><img src="https://i.imgur.com/nKchIL5.png" title="source: imgur.com" /></div>
 
 3. Ao lado do item **Base Environment**, clique no botão **+** e crie uma nova variável chamada **render_url**. Dentro do JSON, adicione o atributo **base_url**. No valor do atributo, adicione o endereço do seu deploy. Utilize a imagem abaixo apenas como referência.
 
